@@ -1,0 +1,2879 @@
+
+==================== FINAL INTERFACE ====================
+2017-03-10 00:46:14.256389963 UTC
+
+interface main@main:Grammar 8002
+  interface hash: 0d5518c982aadc5fd2fe782b1ebb7764
+  ABI hash: ab5c0831188c9260dd4740cb4e9bdb05
+  export-list hash: 7d4cc9b36ac25fe677e7dd34f350ee27
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: d38717052b7af44e5532654adaa9e76c
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Grammar.action_0
+  Grammar.action_1
+  Grammar.action_10
+  Grammar.action_11
+  Grammar.action_12
+  Grammar.action_13
+  Grammar.action_2
+  Grammar.action_3
+  Grammar.action_4
+  Grammar.action_5
+  Grammar.action_6
+  Grammar.action_7
+  Grammar.action_8
+  Grammar.action_9
+  Grammar.happyAccept
+  Grammar.happyDoSeq
+  Grammar.happyDontSeq
+  Grammar.happyDrop
+  Grammar.happyDropStk
+  Grammar.happyError'
+  Grammar.happyError_
+  Grammar.happyFail
+  Grammar.happyGoto
+  Grammar.happyIdentity
+  Grammar.happyMonad2Reduce
+  Grammar.happyMonadReduce
+  Grammar.happyNewToken
+  Grammar.happyParse
+  Grammar.happyReduce
+  Grammar.happyReduce_1
+  Grammar.happyReduce_2
+  Grammar.happyReduce_3
+  Grammar.happyReduce_4
+  Grammar.happyReduce_5
+  Grammar.happyReduction_1
+  Grammar.happyReduction_2
+  Grammar.happyReduction_3
+  Grammar.happyReduction_4
+  Grammar.happyReduction_5
+  Grammar.happyReturn
+  Grammar.happyReturn1
+  Grammar.happyRunIdentity
+  Grammar.happySeq
+  Grammar.happyShift
+  Grammar.happySpecReduce_0
+  Grammar.happySpecReduce_1
+  Grammar.happySpecReduce_2
+  Grammar.happySpecReduce_3
+  Grammar.happyThen
+  Grammar.happyThen1
+  Grammar.notHappyAtAll
+  Grammar.parseError
+  Grammar.parseExpr
+  Grammar.Exp{Grammar.Conj Grammar.Disj Grammar.Impl Grammar.Var}
+  Grammar.HappyAbsSyn{Grammar.HappyAbsSyn4 Grammar.HappyErrorToken Grammar.HappyTerminal}
+  Grammar.HappyIdentity{Grammar.HappyIdentity}
+  Grammar.HappyState{Grammar.HappyState}
+  Grammar.HappyStk{Grammar.HappyStk}
+module dependencies: Tokens
+package dependencies: array-0.5.1.1@array-0.5.1.1 base-4.9.1.0
+                      ghc-prim-0.5.0.0 integer-gmp-1.0.0.1
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:GHC.Exts
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
+import  -/  base-4.9.1.0:Control.Applicative 32430a90492e727f4bd80db71c28600c
+import  -/  base-4.9.1.0:Control.Monad a6784c5dab0d75c63dabec5a37843f98
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Err 3bba35a16538d33d424682ce66876cdd
+import  -/  base-4.9.1.0:GHC.Num 00bfaa7b2f9d6084913c0697a8a49ec8
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  Tokens 445fa30c39a95907cb589d025f092774
+  exports: f7ef56c16412fb075a475147c5bea63c
+  Token 7888355d9a123872834a114b91d0c241
+  TokenConj 3fca11059486c33e5ed8b31758688b0c
+  TokenDisj e9dbd580c5269d09179ff98c9822e831
+  TokenImpl c152978e5171bc5e992c9d1c9297fb58
+  TokenLParen 66f9585295d0ba35785cb094fd5133d5
+  TokenRParen 0c169f0665f989961a35227d78e698d6
+  TokenVar 1698d04ed5813d6bd8b9ed54a6023fbc
+addDependentFile "/home/clitcommander/.stack/programs/x86_64-linux/ghc-ncurses6-8.0.2/lib/ghc-8.0.2/include/ghcversion.h"
+addDependentFile "/usr/include/stdc-predef.h"
+fixities infixr 9 HappyStk, infixr 9 HappyStk
+d9729e1ce9f52e91c816d53d909478bd
+  $fApplicativeHappyIdentity ::
+    GHC.Base.Applicative Grammar.HappyIdentity
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Grammar.HappyIdentity
+                  Grammar.$fFunctorHappyIdentity
+                  Grammar.happyReturn
+                  Grammar.$fApplicativeHappyIdentity_$c<*>
+                  Grammar.$fApplicativeHappyIdentity_$c*>
+                  Grammar.$fApplicativeHappyIdentity_$c<* -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fApplicativeHappyIdentity1 ::
+    Grammar.HappyIdentity a
+    -> Grammar.HappyIdentity b -> Grammar.HappyIdentity a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,A>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ a
+                   @ b
+                   (eta :: Grammar.HappyIdentity a)
+                   (eta1 :: Grammar.HappyIdentity b) ->
+                 eta) -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fApplicativeHappyIdentity2 ::
+    Grammar.HappyIdentity (a -> b) -> Grammar.HappyIdentity a -> b
+  {- Arity: 2, HasNoCafRefs, Strictness: <C(S),1*C1(U)><L,U>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ a
+                   @ b
+                   (m1 :: Grammar.HappyIdentity (a -> b))
+                   (m2 :: Grammar.HappyIdentity a) ->
+                 m1 `cast` (Grammar.N:HappyIdentity[0] <a -> b>_R)
+                   m2 `cast` (Grammar.N:HappyIdentity[0] <a>_R)) -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fApplicativeHappyIdentity_$c*> ::
+    Grammar.HappyIdentity a
+    -> Grammar.HappyIdentity b -> Grammar.HappyIdentity b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S,1*U>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ a
+                   @ b
+                   (eta :: Grammar.HappyIdentity a)
+                   (eta1 :: Grammar.HappyIdentity b) ->
+                 eta1) -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fApplicativeHappyIdentity_$c<* ::
+    Grammar.HappyIdentity a
+    -> Grammar.HappyIdentity b -> Grammar.HappyIdentity a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                Grammar.$fApplicativeHappyIdentity1 -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fApplicativeHappyIdentity_$c<*> ::
+    Grammar.HappyIdentity (a -> b)
+    -> Grammar.HappyIdentity a -> Grammar.HappyIdentity b
+  {- Arity: 2, HasNoCafRefs, Strictness: <C(S),1*C1(U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Grammar.$fApplicativeHappyIdentity2
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <Grammar.HappyIdentity (a -> b)>_R
+                 ->_R <Grammar.HappyIdentity a>_R
+                 ->_R Sym (Grammar.N:HappyIdentity[0] <b>_R)) -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fFunctorHappyIdentity :: GHC.Base.Functor Grammar.HappyIdentity
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Grammar.HappyIdentity
+                  Grammar.$fFunctorHappyIdentity_$cfmap
+                  Grammar.$fFunctorHappyIdentity_$c<$ -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fFunctorHappyIdentity1 :: a -> Grammar.HappyIdentity b -> a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,A>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ b @ a (eta :: a) (ds :: Grammar.HappyIdentity b) -> eta) -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fFunctorHappyIdentity2 :: (a -> b) -> Grammar.HappyIdentity a -> b
+  {- Arity: 2, HasNoCafRefs, Strictness: <C(S),1*C1(U)><L,U>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ a @ b (f :: a -> b) (ds :: Grammar.HappyIdentity a) ->
+                 f ds `cast` (Grammar.N:HappyIdentity[0] <a>_R)) -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fFunctorHappyIdentity_$c<$ ::
+    a -> Grammar.HappyIdentity b -> Grammar.HappyIdentity a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                (\ @ a @ b -> Grammar.$fFunctorHappyIdentity1 @ b @ a)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a>_R
+                 ->_R <Grammar.HappyIdentity b>_R
+                 ->_R Sym (Grammar.N:HappyIdentity[0] <a>_R)) -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fFunctorHappyIdentity_$cfmap ::
+    (a -> b) -> Grammar.HappyIdentity a -> Grammar.HappyIdentity b
+  {- Arity: 2, HasNoCafRefs, Strictness: <C(S),1*C1(U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Grammar.$fFunctorHappyIdentity2
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a -> b>_R
+                 ->_R <Grammar.HappyIdentity a>_R
+                 ->_R Sym (Grammar.N:HappyIdentity[0] <b>_R)) -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fMonadHappyIdentity :: GHC.Base.Monad Grammar.HappyIdentity
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Grammar.HappyIdentity
+                  Grammar.$fMonadHappyIdentity_$cp1Monad
+                  Grammar.$fMonadHappyIdentity_$c>>=
+                  Grammar.$fMonadHappyIdentity_$c>>
+                  Grammar.happyReturn
+                  Grammar.$fMonadHappyIdentity_$s$dmfail -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fMonadHappyIdentity_$c>> ::
+    Grammar.HappyIdentity a
+    -> Grammar.HappyIdentity b -> Grammar.HappyIdentity b
+  {- Arity: 2, Strictness: <L,U><L,U>, Inline: INLINE (sat-args=2),
+     Unfolding: InlineRule (2, False, False)
+                (\ @ a
+                   @ b
+                   (m1 :: Grammar.HappyIdentity a)
+                   (k :: Grammar.HappyIdentity b) ->
+                 Grammar.$fMonadHappyIdentity_$c>>=
+                   @ a
+                   @ b
+                   m1
+                   (\ (ds :: a)[OneShot] -> k)) -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fMonadHappyIdentity_$c>>= ::
+    Grammar.HappyIdentity a
+    -> (a -> Grammar.HappyIdentity b) -> Grammar.HappyIdentity b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><C(S),1*C1(U)>,
+     Unfolding: InlineRule (0, True, True) Grammar.happyThen -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fMonadHappyIdentity_$cp1Monad ::
+    GHC.Base.Applicative Grammar.HappyIdentity
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                Grammar.$fApplicativeHappyIdentity -}
+d9729e1ce9f52e91c816d53d909478bd
+  $fMonadHappyIdentity_$s$dmfail ::
+    GHC.Base.String -> Grammar.HappyIdentity a
+  {- Arity: 1, Strictness: <B,U>x,
+     Unfolding: InlineRule (-1, True, True)
+                (\ @ a (s :: GHC.Base.String) ->
+                 GHC.Err.errorWithoutStackTrace
+                   @ 'GHC.Types.PtrRepLifted
+                   @ (Grammar.HappyIdentity a)
+                   s) -}
+0b696f746e482c2541295f87958e5b03
+  $fShowExp :: GHC.Show.Show Grammar.Exp
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Grammar.Exp
+                  Grammar.$fShowExp_$cshowsPrec
+                  Grammar.$fShowExp_$cshow
+                  Grammar.$fShowExp_$cshowList -}
+0b696f746e482c2541295f87958e5b03
+  $fShowExp1 :: Grammar.Exp -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ (w :: Grammar.Exp) (w1 :: GHC.Base.String) ->
+                 Grammar.$w$cshowsPrec 0# w w1) -}
+0b696f746e482c2541295f87958e5b03
+  $fShowExp_$cshow :: Grammar.Exp -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: Grammar.Exp) ->
+                 Grammar.$fShowExp_$cshowsPrec
+                   GHC.Show.shows22
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+0b696f746e482c2541295f87958e5b03
+  $fShowExp_$cshowList :: [Grammar.Exp] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Grammar.Exp
+                   Grammar.$fShowExp1) -}
+0b696f746e482c2541295f87958e5b03
+  $fShowExp_$cshowsPrec ::
+    GHC.Types.Int -> Grammar.Exp -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: Grammar.Exp)
+                   (w2 :: GHC.Base.String) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Grammar.$w$cshowsPrec ww1 w1 w2 }) -}
+8cfdf92db9c357ac37bf21f3b637243c
+  $tc'Conj :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   8326262623124105984##
+                   7939588145196010127##
+                   Grammar.$trModule
+                   Grammar.$tc'Conj1) -}
+c06c437d7edf8804216e581d1371469b
+  $tc'Conj1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Conj"#) -}
+c4c2a5174f28a80af859c735f4ae20f8
+  $tc'Disj :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   56978882180880140##
+                   7333004493190585535##
+                   Grammar.$trModule
+                   Grammar.$tc'Disj1) -}
+4ef5c464eb0a478582533fbfa40fc8eb
+  $tc'Disj1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Disj"#) -}
+1bffadd7e788664cce4b8ab985c63916
+  $tc'HappyAbsSyn1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'HappyAbsSyn4"#) -}
+5863b7a0852c98fa200a98c6d4439b14
+  $tc'HappyAbsSyn4 :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   1830546858771017548##
+                   12900841394701457292##
+                   Grammar.$trModule
+                   Grammar.$tc'HappyAbsSyn1) -}
+7c0d467e3d14101edceb2173f80d33b9
+  $tc'HappyErrorToken :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   6422276039885708400##
+                   2871032323956354361##
+                   Grammar.$trModule
+                   Grammar.$tc'HappyErrorToken1) -}
+1ff9e30bf5d9888566ffcb75c4228405
+  $tc'HappyErrorToken1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'HappyErrorToken"#) -}
+1db19a84bc6a4c506b82535a6ec05b67
+  $tc'HappyIdentity :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2088823035284028402##
+                   7645230861187508207##
+                   Grammar.$trModule
+                   Grammar.$tc'HappyIdentity1) -}
+30659f6917865bcc4f163a5b4526ca7e
+  $tc'HappyIdentity1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'HappyIdentity"#) -}
+0833ba94a6fc7ea345350d9f5a687fd9
+  $tc'HappyState :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   17495989433120109883##
+                   8989869937843025658##
+                   Grammar.$trModule
+                   Grammar.$tc'HappyState1) -}
+c6e3634e2c59ab34a7b5bea5d22c85b1
+  $tc'HappyState1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'HappyState"#) -}
+f5f437d7bf004be63befbe25aa1a3890
+  $tc'HappyStk :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   8271181767041832823##
+                   7509449143790020763##
+                   Grammar.$trModule
+                   Grammar.$tc'HappyStk1) -}
+f31068067c8b78d03573a7c7672fcb40
+  $tc'HappyStk1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'HappyStk"#) -}
+38bd420a18eaed5ac6828e968684a3e5
+  $tc'HappyTerminal :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   7057979051986085073##
+                   5349652905577568063##
+                   Grammar.$trModule
+                   Grammar.$tc'HappyTerminal1) -}
+8d32620a7bbb9c899114cc73f02596f4
+  $tc'HappyTerminal1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'HappyTerminal"#) -}
+f51210f6d1e0bc8848293ca147dbacaf
+  $tc'Impl :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   16600483354317714810##
+                   190203249944375024##
+                   Grammar.$trModule
+                   Grammar.$tc'Impl1) -}
+15d17093fde6a81c0d9579f6f5ca55c9
+  $tc'Impl1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Impl"#) -}
+45a89054e695ec29fbe2500aae96a2bb
+  $tc'Var :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   3351391713980668587##
+                   2533278095268924042##
+                   Grammar.$trModule
+                   Grammar.$tc'Var1) -}
+d9c45f327750c812e0492ce2a1561a0b
+  $tc'Var1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Var"#) -}
+1a840852f2290f2ad99d13751ba1798b
+  $tcExp :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   10773692727917527178##
+                   4328752105948557893##
+                   Grammar.$trModule
+                   Grammar.$tcExp1) -}
+9c7110506dcaf8d6b24e4e71051d8888
+  $tcExp1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Exp"#) -}
+e4c9b52a9d8f5d17e5bb327607ac89f4
+  $tcHappyAbsSyn :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   8631168618827007498##
+                   2358161706551445091##
+                   Grammar.$trModule
+                   Grammar.$tcHappyAbsSyn1) -}
+714888dfd1a5bb94e82694c927fab6db
+  $tcHappyAbsSyn1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "HappyAbsSyn"#) -}
+d9a770cfdae5d8a9d3f501f72a18fba0
+  $tcHappyIdentity :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   14118076268301398148##
+                   11098702252581753217##
+                   Grammar.$trModule
+                   Grammar.$tcHappyIdentity1) -}
+58221305885c4800e525986fece7655d
+  $tcHappyIdentity1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "HappyIdentity"#) -}
+61575413ada652052649a87b96fd5ba1
+  $tcHappyState :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2747215770742300012##
+                   3171598369600376763##
+                   Grammar.$trModule
+                   Grammar.$tcHappyState1) -}
+1fa6074ac45daa4c02e00711b660ca88
+  $tcHappyState1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "HappyState"#) -}
+99cc6b02c3e47d52542b3777c88e0d3a
+  $tcHappyStk :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   11491582037281848299##
+                   4535115810101415834##
+                   Grammar.$trModule
+                   Grammar.$tcHappyStk1) -}
+6c5f951f802bf53485428f1642d63593
+  $tcHappyStk1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "HappyStk"#) -}
+2e6e1754346073c0cbfdd8008a1b404f
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Grammar.$trModule2
+                   Grammar.$trModule1) -}
+aecc6a68b380169331665d3edb92f7eb
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Grammar"#) -}
+4b0f3346e113a96821e0b337e291c386
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+0b696f746e482c2541295f87958e5b03
+  $w$cshowsPrec ::
+    GHC.Prim.Int# -> Grammar.Exp -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 3, Strictness: <S,U><S,1*U><L,U>, Inline: [0] -}
+a197b1aab23e6fdac724841738cb6544
+  $waction_11 ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 6,
+     Strictness: <S,1*U><L,U(U)><L,U><L,U><L,U><L,U(U,U(U,U(U,U)))>,
+     Inline: [0] -}
+b971968454da3242cc6e5ffdae71d261
+  $waction_12 ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 6,
+     Strictness: <S,1*U><L,U(U)><L,U><L,U><L,U><L,U(U,U(U,U(U,U)))>,
+     Inline: [0] -}
+f3195c80e5c664c3c75b8cc242a0ca0b
+  $waction_4 ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 4, Strictness: <S,1*U><L,U(U)><L,U><L,U>, Inline: [0] -}
+908cd94ece9f339f600d3418040afd3f
+  $waction_6 ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 4, Strictness: <S,1*U><L,U(U)><L,U><L,U>, Inline: [0] -}
+58926d4da013600c4e61464f4f5187a3
+  $waction_7 ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 4, Strictness: <S,1*U><L,U(U)><L,U><L,U>, Inline: [0] -}
+1eb1262b92a3f22588096f2b82977a09
+  $waction_8 ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 4, Strictness: <S,1*U><L,U(U)><L,U><L,U>, Inline: [0] -}
+5736bce6a2cabcd9510207f12700058a
+  $waction_9 ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 6, Strictness: <S,1*U><L,U(U)><L,U><L,U><L,U><L,U(U,U)>,
+     Inline: [0] -}
+2867aaffe1dbe8449564c57363737c1b
+  $whappyDrop :: GHC.Prim.Int# -> [t] -> [t]
+  {- Arity: 2, Strictness: <S,1*U><S,1*U>, Inline: [0] -}
+72d7711aa1a0f375259c262b8f82a845
+  $whappyMonad2Reduce ::
+    (GHC.Num.Num a, GHC.Classes.Eq a) =>
+    GHC.Types.Int
+    -> (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+        -> Tokens.Token -> Grammar.HappyIdentity (Grammar.HappyAbsSyn t4))
+    -> a
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+          -> [Tokens.Token] -> Grammar.HappyIdentity b)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity b)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity b
+  {- Arity: 9,
+     Strictness: <L,1*U(A,A,A,A,A,A,1*C1(U))><S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U(U)><L,1*C1(C1(U))><L,U><L,U><L,U><L,U><L,U(U,U(U,U(U,U(U,U(U,U(U,U(U,U(U,U(U,U)))))))))>,
+     Inline: [0],
+     Unfolding: (\ @ b
+                   @ a
+                   @ t4
+                   @ t
+                   (w :: GHC.Num.Num a)
+                   (w1 :: GHC.Classes.Eq a)
+                   (w2 :: GHC.Types.Int)
+                   (w3 :: Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                          -> Tokens.Token -> Grammar.HappyIdentity (Grammar.HappyAbsSyn t4))
+                   (w4 :: a)
+                   (w5 :: Tokens.Token)
+                   (w6 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                             -> [Tokens.Token] -> Grammar.HappyIdentity b))
+                   (w7 :: [Grammar.HappyState
+                             Tokens.Token
+                             (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                              -> [Tokens.Token] -> Grammar.HappyIdentity b)])
+                   (w8 :: Grammar.HappyStk (Grammar.HappyAbsSyn t4)) ->
+                 case GHC.Classes.==
+                        @ a
+                        w1
+                        w4
+                        (GHC.Num.fromInteger @ a w Grammar.happyAccept1) of wild {
+                   GHC.Types.False
+                   -> case w2 of ww { GHC.Types.I# ww1 ->
+                      case Grammar.$whappyDrop
+                             @ (Grammar.HappyState
+                                  Tokens.Token
+                                  (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                                   -> [Tokens.Token] -> Grammar.HappyIdentity b))
+                             ww1
+                             (GHC.Types.:
+                                @ (Grammar.HappyState
+                                     Tokens.Token
+                                     (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                                      -> [Tokens.Token] -> Grammar.HappyIdentity b))
+                                w6
+                                w7) of wild1 {
+                        [] -> Grammar.happyMonad2Reduce2 @ b
+                        : st1 ds
+                        -> let {
+                             drop_stk :: Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                             = Grammar.happyDropStk @ (Grammar.HappyAbsSyn t4) ww w8
+                           } in
+                           let {
+                             m :: Grammar.HappyIdentity (Grammar.HappyAbsSyn t4) = w3 w8 w5
+                           } in
+                           let {
+                             lvl29 :: Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                             = Grammar.HappyStk
+                                 @ (Grammar.HappyAbsSyn t4)
+                                 m `cast` (Grammar.N:HappyIdentity[0] <Grammar.HappyAbsSyn t4>_R)
+                                 drop_stk
+                           } in
+                           \ (tks :: [Tokens.Token]) ->
+                           Grammar.happyNewToken
+                             @ b
+                             @ (Grammar.HappyStk (Grammar.HappyAbsSyn t4))
+                             st1
+                               `cast`
+                             (Grammar.N:HappyState[0]
+                                  <Tokens.Token>_R
+                                  <Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                                   -> [Tokens.Token] -> Grammar.HappyIdentity b>_R)
+                             wild1
+                             lvl29
+                             tks } }
+                   GHC.Types.True
+                   -> Grammar.happyFail
+                        @ b
+                        @ t4
+                        Grammar.happyMonad2Reduce1
+                        w5
+                        w6
+                        w7
+                        w8 }) -}
+c8e345ed8707c07635ca8caed32e8e7c
+  $wlvl1 ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 6,
+     Strictness: <S,1*U><L,U(U)><L,U><L,U><L,U><L,U(U,U(U,U))>,
+     Inline: [0],
+     Unfolding: (\ (ww :: GHC.Prim.Int#)
+                   (w :: GHC.Types.Int)
+                   (w1 :: Tokens.Token)
+                   (w2 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token]
+                             -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)))
+                   (w3 :: [Grammar.HappyState
+                             Tokens.Token
+                             (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                              -> [Tokens.Token]
+                              -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))])
+                   (w4 :: Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)) ->
+                 case ww of wild {
+                   DEFAULT
+                   -> Grammar.happyFail
+                        @ (Grammar.HappyAbsSyn Grammar.Exp)
+                        @ Grammar.Exp
+                        w
+                        w1
+                        w2
+                        w3
+                        w4
+                   6#
+                   -> Grammar.happyShift
+                        @ GHC.Types.Int
+                        @ (Grammar.HappyAbsSyn Grammar.Exp)
+                        @ Grammar.Exp
+                        GHC.Num.$fNumInt
+                        GHC.Classes.$fEqInt
+                        (Grammar.action_6 @ (Grammar.HappyAbsSyn Grammar.Exp))
+                        w
+                        w1
+                        w2
+                        w3
+                        w4
+                   7#
+                   -> Grammar.happyShift
+                        @ GHC.Types.Int
+                        @ (Grammar.HappyAbsSyn Grammar.Exp)
+                        @ Grammar.Exp
+                        GHC.Num.$fNumInt
+                        GHC.Classes.$fEqInt
+                        (Grammar.action_7 @ (Grammar.HappyAbsSyn Grammar.Exp))
+                        w
+                        w1
+                        w2
+                        w3
+                        w4
+                   8#
+                   -> Grammar.happyShift
+                        @ GHC.Types.Int
+                        @ (Grammar.HappyAbsSyn Grammar.Exp)
+                        @ Grammar.Exp
+                        GHC.Num.$fNumInt
+                        GHC.Classes.$fEqInt
+                        (Grammar.action_8 @ (Grammar.HappyAbsSyn Grammar.Exp))
+                        w
+                        w1
+                        w2
+                        w3
+                        w4
+                   11#
+                   -> \ (eta :: [Tokens.Token]) ->
+                      case w of wild1 { GHC.Types.I# x ->
+                      case x of wild2 {
+                        DEFAULT
+                        -> case w4 of wild3 { Grammar.HappyStk ans ds ->
+                           ans
+                             `cast`
+                           (Sym (Grammar.N:HappyIdentity[0]
+                                     <Grammar.HappyAbsSyn Grammar.Exp>_R)) }
+                        1#
+                        -> case w4 of wild3 { Grammar.HappyStk ds ds1 ->
+                           case ds1 of wild4 { Grammar.HappyStk ans ds2 ->
+                           ans
+                             `cast`
+                           (Sym (Grammar.N:HappyIdentity[0]
+                                     <Grammar.HappyAbsSyn Grammar.Exp>_R)) } } } } }) -}
+9e57300fe3ba62e8543a9c4b751d0657
+  $wlvl2 ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 6, Strictness: <S,1*U><L,U(U)><L,U><L,U><L,U><L,U(U,U)>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   (ww :: GHC.Prim.Int#)
+                   (w :: GHC.Types.Int)
+                   (w1 :: Tokens.Token)
+                   (w2 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token] -> Grammar.HappyIdentity a))
+                   (w3 :: [Grammar.HappyState
+                             Tokens.Token
+                             (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                              -> [Tokens.Token] -> Grammar.HappyIdentity a)])
+                   (w4 :: Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)) ->
+                 case ww of wild {
+                   DEFAULT -> Grammar.happyFail @ a @ Grammar.Exp w w1 w2 w3 w4
+                   6#
+                   -> Grammar.happyShift
+                        @ GHC.Types.Int
+                        @ a
+                        @ Grammar.Exp
+                        GHC.Num.$fNumInt
+                        GHC.Classes.$fEqInt
+                        (Grammar.action_6 @ a)
+                        w
+                        w1
+                        w2
+                        w3
+                        w4
+                   7#
+                   -> Grammar.happyShift
+                        @ GHC.Types.Int
+                        @ a
+                        @ Grammar.Exp
+                        GHC.Num.$fNumInt
+                        GHC.Classes.$fEqInt
+                        (Grammar.action_7 @ a)
+                        w
+                        w1
+                        w2
+                        w3
+                        w4
+                   8#
+                   -> Grammar.happyShift
+                        @ GHC.Types.Int
+                        @ a
+                        @ Grammar.Exp
+                        GHC.Num.$fNumInt
+                        GHC.Classes.$fEqInt
+                        (Grammar.action_8 @ a)
+                        w
+                        w1
+                        w2
+                        w3
+                        w4 }) -}
+dcc807f3569d31732f9ffce7fe1c7833
+  $wlvl3 ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 4, Strictness: <S,1*U><L,U(U)><L,U><L,U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Prim.Int#)
+                   (w :: GHC.Types.Int)
+                   (w1 :: Tokens.Token)
+                   (w2 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token]
+                             -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))) ->
+                 case ww of wild {
+                   DEFAULT
+                   -> Grammar.happyFail
+                        @ (Grammar.HappyAbsSyn Grammar.Exp)
+                        @ Grammar.Exp
+                        w
+                        w1
+                        w2
+                   4#
+                   -> Grammar.happyGoto
+                        @ (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                           -> [Tokens.Token]
+                           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+                        @ (Grammar.HappyState
+                             Tokens.Token
+                             (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                              -> [Tokens.Token]
+                              -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)))
+                        @ Tokens.Token
+                        Grammar.action_20
+                        w
+                        w1
+                        w2
+                   5#
+                   -> Grammar.happyShift
+                        @ GHC.Types.Int
+                        @ (Grammar.HappyAbsSyn Grammar.Exp)
+                        @ Grammar.Exp
+                        GHC.Num.$fNumInt
+                        GHC.Classes.$fEqInt
+                        (Grammar.action_3
+                           @ (Grammar.HappyAbsSyn Grammar.Exp)
+                           @ GHC.Types.Int)
+                        w
+                        w1
+                        w2
+                   9#
+                   -> Grammar.happyShift
+                        @ GHC.Types.Int
+                        @ (Grammar.HappyAbsSyn Grammar.Exp)
+                        @ Grammar.Exp
+                        GHC.Num.$fNumInt
+                        GHC.Classes.$fEqInt
+                        (Grammar.action_4 @ (Grammar.HappyAbsSyn Grammar.Exp))
+                        w
+                        w1
+                        w2 }) -}
+0b696f746e482c2541295f87958e5b03
+  data Exp
+    = Impl Grammar.Exp Grammar.Exp
+    | Conj Grammar.Exp Grammar.Exp
+    | Disj Grammar.Exp Grammar.Exp
+    | Var GHC.Base.String
+9ae9b8b2a7cf6fc29f62db59fa2708b2
+  data HappyAbsSyn t4
+    = HappyTerminal Tokens.Token
+    | HappyErrorToken GHC.Types.Int
+    | HappyAbsSyn4 t4
+d9729e1ce9f52e91c816d53d909478bd
+  newtype HappyIdentity a = HappyIdentity a
+acc8fe2eabb76a68cc642f4f11bfa540
+  newtype HappyState b c
+    = HappyState (GHC.Types.Int
+                  -> GHC.Types.Int
+                  -> b
+                  -> Grammar.HappyState b c
+                  -> [Grammar.HappyState b c]
+                  -> c)
+    RecFlag: Recursive
+6dd4a13440d1ad8ea9779ff7f21e63aa
+  data HappyStk a = HappyStk a (Grammar.HappyStk a)
+    RecFlag: Recursive
+9bde5b9e77546a291562d8f555e4525e
+  action_0 ::
+    (GHC.Num.Num a, GHC.Classes.Eq a) =>
+    a
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 3,
+     Strictness: <L,U(A,A,A,A,A,A,C(U))><S(C(C(S))L),U(C(C1(U)),A)><L,U>,
+     Unfolding: (\ @ a
+                   ($dNum :: GHC.Num.Num a)
+                   ($dEq :: GHC.Classes.Eq a)
+                   (ds :: a) ->
+                 case GHC.Classes.==
+                        @ a
+                        $dEq
+                        ds
+                        (GHC.Num.fromInteger @ a $dNum Grammar.action_23) of wild {
+                   GHC.Types.False
+                   -> case GHC.Classes.==
+                             @ a
+                             $dEq
+                             ds
+                             (GHC.Num.fromInteger @ a $dNum Grammar.action_22) of wild1 {
+                        GHC.Types.False
+                        -> case GHC.Classes.==
+                                  @ a
+                                  $dEq
+                                  ds
+                                  (GHC.Num.fromInteger @ a $dNum Grammar.action_21) of wild2 {
+                             GHC.Types.False
+                             -> Grammar.happyFail
+                                  @ (Grammar.HappyAbsSyn Grammar.Exp)
+                                  @ Grammar.Exp
+                             GHC.Types.True -> Grammar.action_19 }
+                        GHC.Types.True -> Grammar.action_18 }
+                   GHC.Types.True -> Grammar.action_17 }) -}
+6d90499be48e0d59298095acdb03cc73
+  action_1 ::
+    (GHC.Num.Num a1, GHC.Classes.Eq a1) =>
+    a1
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 3,
+     Strictness: <L,U(A,A,A,A,A,A,C(U))><S(C(C(S))L),U(C(C1(U)),A)><L,U>,
+     Unfolding: (\ @ a
+                   @ a1
+                   ($dNum :: GHC.Num.Num a1)
+                   ($dEq :: GHC.Classes.Eq a1)
+                   (ds :: a1) ->
+                 case GHC.Classes.==
+                        @ a1
+                        $dEq
+                        ds
+                        (GHC.Num.fromInteger @ a1 $dNum Grammar.action_23) of wild {
+                   GHC.Types.False
+                   -> case GHC.Classes.==
+                             @ a1
+                             $dEq
+                             ds
+                             (GHC.Num.fromInteger @ a1 $dNum Grammar.action_22) of wild1 {
+                        GHC.Types.False
+                        -> case GHC.Classes.==
+                                  @ a1
+                                  $dEq
+                                  ds
+                                  (GHC.Num.fromInteger @ a1 $dNum Grammar.action_21) of wild2 {
+                             GHC.Types.False -> Grammar.happyFail @ a @ Grammar.Exp
+                             GHC.Types.True -> Grammar.action_26 @ a }
+                        GHC.Types.True -> Grammar.action_25 @ a }
+                   GHC.Types.True -> Grammar.action_24 @ a }) -}
+8a5b70c55113497ceab267832a6ffabf
+  action_10 ::
+    t
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 6, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ a
+                   @ t4
+                   @ t
+                   (di :: t)
+                   (eta :: GHC.Types.Int)
+                   (eta1 :: Tokens.Token)
+                   (eta2 :: Grammar.HappyState
+                              Tokens.Token
+                              (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                               -> [Tokens.Token] -> Grammar.HappyIdentity a))
+                   (eta3 :: [Grammar.HappyState
+                               Tokens.Token
+                               (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                                -> [Tokens.Token] -> Grammar.HappyIdentity a)])
+                   (eta4 :: Grammar.HappyStk (Grammar.HappyAbsSyn t4)) ->
+                 Grammar.happyReduce_4 @ a @ t4 eta eta1 eta2 eta3 eta4) -}
+7938bc863fbc8b0a64d558cbee422848
+  action_11 ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 6,
+     Strictness: <S(S),1*U(1*U)><L,U(U)><L,U><L,U><L,U><L,U(U,U(U,U(U,U)))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (6, True, False)
+                (\ @ a
+                   (w :: GHC.Types.Int)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Tokens.Token)
+                   (w3 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token] -> Grammar.HappyIdentity a))
+                   (w4 :: [Grammar.HappyState
+                             Tokens.Token
+                             (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                              -> [Tokens.Token] -> Grammar.HappyIdentity a)])
+                   (w5 :: Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Grammar.$waction_11 @ a ww1 w1 w2 w3 w4 w5 }) -}
+b4bbb05a5103fe135c1df06deb0c7c0f
+  action_12 ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 6,
+     Strictness: <S(S),1*U(1*U)><L,U(U)><L,U><L,U><L,U><L,U(U,U(U,U(U,U)))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (6, True, False)
+                (\ @ a
+                   (w :: GHC.Types.Int)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Tokens.Token)
+                   (w3 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token] -> Grammar.HappyIdentity a))
+                   (w4 :: [Grammar.HappyState
+                             Tokens.Token
+                             (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                              -> [Tokens.Token] -> Grammar.HappyIdentity a)])
+                   (w5 :: Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Grammar.$waction_12 @ a ww1 w1 w2 w3 w4 w5 }) -}
+a6535583585e1d71c518b38455483837
+  action_13 ::
+    t
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 6, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ a
+                   @ t
+                   (di :: t)
+                   (eta :: GHC.Types.Int)
+                   (eta1 :: Tokens.Token)
+                   (eta2 :: Grammar.HappyState
+                              Tokens.Token
+                              (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                               -> [Tokens.Token] -> Grammar.HappyIdentity a))
+                   (eta3 :: [Grammar.HappyState
+                               Tokens.Token
+                               (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                                -> [Tokens.Token] -> Grammar.HappyIdentity a)])
+                   (eta4 :: Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)) ->
+                 Grammar.happyReduce_3 @ a eta eta1 eta2 eta3 eta4) -}
+3ae8e0c72984197c8145c3b57132372f
+  action_17 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 5,
+     Unfolding: (Grammar.happyShift
+                   @ GHC.Types.Int
+                   @ (Grammar.HappyAbsSyn Grammar.Exp)
+                   @ Grammar.Exp
+                   GHC.Num.$fNumInt
+                   GHC.Classes.$fEqInt
+                   (Grammar.action_3
+                      @ (Grammar.HappyAbsSyn Grammar.Exp)
+                      @ GHC.Types.Int)) -}
+5167778e34791ed5782387547de0965f
+  action_18 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 5,
+     Unfolding: (Grammar.happyShift
+                   @ GHC.Types.Int
+                   @ (Grammar.HappyAbsSyn Grammar.Exp)
+                   @ Grammar.Exp
+                   GHC.Num.$fNumInt
+                   GHC.Classes.$fEqInt
+                   (Grammar.action_4 @ (Grammar.HappyAbsSyn Grammar.Exp))) -}
+c09fbf17cf5a973d4de4ad3b93a00277
+  action_19 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 3,
+     Unfolding: (Grammar.happyGoto
+                   @ (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                      -> [Tokens.Token]
+                      -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+                   @ (Grammar.HappyState
+                        Tokens.Token
+                        (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                         -> [Tokens.Token]
+                         -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)))
+                   @ Tokens.Token
+                   Grammar.action_20) -}
+87c6e335f21397365db8e1e54e8f777e
+  action_2 ::
+    (GHC.Num.Num a1, GHC.Classes.Eq a1) =>
+    a1
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 3,
+     Strictness: <L,U(A,A,A,A,A,A,C(U))><S(C(C(S))L),U(C(C1(U)),A)><L,U>,
+     Unfolding: (\ @ a
+                   @ a1
+                   ($dNum :: GHC.Num.Num a1)
+                   ($dEq :: GHC.Classes.Eq a1)
+                   (ds :: a1) ->
+                 case GHC.Classes.==
+                        @ a1
+                        $dEq
+                        ds
+                        (GHC.Num.fromInteger @ a1 $dNum Grammar.action_33) of wild {
+                   GHC.Types.False
+                   -> case GHC.Classes.==
+                             @ a1
+                             $dEq
+                             ds
+                             (GHC.Num.fromInteger @ a1 $dNum Grammar.action_32) of wild1 {
+                        GHC.Types.False
+                        -> case GHC.Classes.==
+                                  @ a1
+                                  $dEq
+                                  ds
+                                  (GHC.Num.fromInteger @ a1 $dNum Grammar.action_31) of wild2 {
+                             GHC.Types.False -> Grammar.happyFail @ a @ Grammar.Exp
+                             GHC.Types.True -> Grammar.action_30 @ a }
+                        GHC.Types.True -> Grammar.action_29 @ a }
+                   GHC.Types.True -> Grammar.action_28 @ a }) -}
+86807bc4c3e8425f3e09dfd346b1fc76
+  action_20 ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 6,
+     Strictness: <S(S),1*U(1*U)><L,U(U)><L,U><L,U><L,U><L,U(U,U(U,U))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (6, True, False)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Tokens.Token)
+                   (w3 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token]
+                             -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)))
+                   (w4 :: [Grammar.HappyState
+                             Tokens.Token
+                             (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                              -> [Tokens.Token]
+                              -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))])
+                   (w5 :: Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Grammar.$wlvl1 ww1 w1 w2 w3 w4 w5 }) -}
+e9aba496ca329855f21b796e5aa69ba4
+  action_21 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (4) -}
+1c22fce6c831a9b39b91436181a60418
+  action_22 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (9) -}
+e285b84c83d9baff046f666db585a133
+  action_23 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (5) -}
+45a24db7524add1012c0b121540a8d57
+  action_24 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 5,
+     Unfolding: (\ @ a ->
+                 Grammar.happyShift
+                   @ GHC.Types.Int
+                   @ a
+                   @ Grammar.Exp
+                   GHC.Num.$fNumInt
+                   GHC.Classes.$fEqInt
+                   (Grammar.action_3 @ a @ GHC.Types.Int)) -}
+84f7f787adc87300fa3a8b53102b55ac
+  action_25 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 5,
+     Unfolding: (\ @ a ->
+                 Grammar.happyShift
+                   @ GHC.Types.Int
+                   @ a
+                   @ Grammar.Exp
+                   GHC.Num.$fNumInt
+                   GHC.Classes.$fEqInt
+                   (Grammar.action_4 @ a)) -}
+75ec684377b2e88d9eb3984a027de598
+  action_26 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 3,
+     Unfolding: (\ @ a ->
+                 Grammar.happyGoto
+                   @ (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                      -> [Tokens.Token] -> Grammar.HappyIdentity a)
+                   @ (Grammar.HappyState
+                        Tokens.Token
+                        (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                         -> [Tokens.Token] -> Grammar.HappyIdentity a))
+                   @ Tokens.Token
+                   (Grammar.action_27 @ a)) -}
+09d9305a0aa98897098deec75d144d3b
+  action_27 ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 6,
+     Strictness: <S(S),1*U(1*U)><L,U(U)><L,U><L,U><L,U><L,U(U,U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (6, True, False)
+                (\ @ a
+                   (w :: GHC.Types.Int)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Tokens.Token)
+                   (w3 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token] -> Grammar.HappyIdentity a))
+                   (w4 :: [Grammar.HappyState
+                             Tokens.Token
+                             (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                              -> [Tokens.Token] -> Grammar.HappyIdentity a)])
+                   (w5 :: Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Grammar.$wlvl2 @ a ww1 w1 w2 w3 w4 w5 }) -}
+107fef30ed0fcab16fa14565a4e411c6
+  action_28 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 5,
+     Unfolding: (\ @ a ->
+                 Grammar.happyShift
+                   @ GHC.Types.Int
+                   @ a
+                   @ Grammar.Exp
+                   GHC.Num.$fNumInt
+                   GHC.Classes.$fEqInt
+                   (Grammar.action_6 @ a)) -}
+6ea1d00fa401ca7c4ce866802325fd68
+  action_29 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 5,
+     Unfolding: (\ @ a ->
+                 Grammar.happyShift
+                   @ GHC.Types.Int
+                   @ a
+                   @ Grammar.Exp
+                   GHC.Num.$fNumInt
+                   GHC.Classes.$fEqInt
+                   (Grammar.action_7 @ a)) -}
+8946a1c0206442193a90f8cb5c6dab98
+  action_3 ::
+    t
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 6, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ a
+                   @ t
+                   (di :: t)
+                   (eta :: GHC.Types.Int)
+                   (eta1 :: Tokens.Token)
+                   (eta2 :: Grammar.HappyState
+                              Tokens.Token
+                              (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                               -> [Tokens.Token] -> Grammar.HappyIdentity a))
+                   (eta3 :: [Grammar.HappyState
+                               Tokens.Token
+                               (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                                -> [Tokens.Token] -> Grammar.HappyIdentity a)])
+                   (eta4 :: Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)) ->
+                 Grammar.happyReduce_5 @ a eta eta1 eta2 eta3 eta4) -}
+1de1113ef9da525aa11de5d9609b24b0
+  action_30 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 5,
+     Unfolding: (\ @ a ->
+                 Grammar.happyShift
+                   @ GHC.Types.Int
+                   @ a
+                   @ Grammar.Exp
+                   GHC.Num.$fNumInt
+                   GHC.Classes.$fEqInt
+                   (Grammar.action_8 @ a)) -}
+18a864338f4b3b19b9c2c9acd953a317
+  action_31 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (8) -}
+4e3dbcd054e3589944f2105dc391ab2a
+  action_32 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (7) -}
+54529dd336ff693a82ba2ec9af6811a7
+  action_33 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (6) -}
+120574d0e42cf4fb83bcfe79b8d05736
+  action_34 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 5,
+     Unfolding: (Grammar.happyShift
+                   @ GHC.Types.Int
+                   @ (Grammar.HappyAbsSyn Grammar.Exp)
+                   @ Grammar.Exp
+                   GHC.Num.$fNumInt
+                   GHC.Classes.$fEqInt
+                   (Grammar.action_6 @ (Grammar.HappyAbsSyn Grammar.Exp))) -}
+80d1ddcbc28d3f6e4b75c9dd5339e8d5
+  action_35 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 5,
+     Unfolding: (Grammar.happyShift
+                   @ GHC.Types.Int
+                   @ (Grammar.HappyAbsSyn Grammar.Exp)
+                   @ Grammar.Exp
+                   GHC.Num.$fNumInt
+                   GHC.Classes.$fEqInt
+                   (Grammar.action_7 @ (Grammar.HappyAbsSyn Grammar.Exp))) -}
+3211be65884b9320b3cc7a2a9c863d5b
+  action_36 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 5,
+     Unfolding: (Grammar.happyShift
+                   @ GHC.Types.Int
+                   @ (Grammar.HappyAbsSyn Grammar.Exp)
+                   @ Grammar.Exp
+                   GHC.Num.$fNumInt
+                   GHC.Classes.$fEqInt
+                   (Grammar.action_8 @ (Grammar.HappyAbsSyn Grammar.Exp))) -}
+e3c14a0f01c5d86e5d295e02c965cf82
+  action_37 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 6, HasNoCafRefs,
+     Strictness: <S(S),1*U(1*U)><L,A><L,A><L,A><S,1*U(1*U,1*U(1*U,A))><L,A>,
+     Unfolding: InlineRule (6, True, False)
+                (\ (ds :: GHC.Types.Int)
+                   (tk :: Tokens.Token)
+                   (st :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token]
+                             -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)))
+                   (sts :: [Grammar.HappyState
+                              Tokens.Token
+                              (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                               -> [Tokens.Token]
+                               -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))])
+                   (ds1 :: Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp))
+                   (eta :: [Tokens.Token]) ->
+                 case ds of wild { GHC.Types.I# x ->
+                 case x of wild1 {
+                   DEFAULT
+                   -> case ds1 of wild2 { Grammar.HappyStk ans ds2 ->
+                      ans
+                        `cast`
+                      (Sym (Grammar.N:HappyIdentity[0]
+                                <Grammar.HappyAbsSyn Grammar.Exp>_R)) }
+                   1#
+                   -> case ds1 of wild2 { Grammar.HappyStk ds2 ds3 ->
+                      case ds3 of wild3 { Grammar.HappyStk ans ds4 ->
+                      ans
+                        `cast`
+                      (Sym (Grammar.N:HappyIdentity[0]
+                                <Grammar.HappyAbsSyn Grammar.Exp>_R)) } } } }) -}
+d3d516e9a45b2dcd4f852615467336c4
+  action_38 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (11) -}
+ee733d96e93b39ed652ad5d1dbf78660
+  action_4 ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 4, Strictness: <S(S),1*U(1*U)><L,U(U)><L,U><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ a
+                   (w :: GHC.Types.Int)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Tokens.Token)
+                   (w3 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token] -> Grammar.HappyIdentity a)) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Grammar.$waction_4 @ a ww1 w1 w2 w3 }) -}
+4da8254a46525ffe7a877f1a0e010dc5
+  action_5 ::
+    (GHC.Num.Num a, GHC.Classes.Eq a) =>
+    a
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 3,
+     Strictness: <L,U(A,A,A,A,A,A,C(U))><S(C(C(S))L),U(C(C1(U)),A)><L,U>,
+     Unfolding: (\ @ a
+                   ($dNum :: GHC.Num.Num a)
+                   ($dEq :: GHC.Classes.Eq a)
+                   (ds :: a) ->
+                 case GHC.Classes.==
+                        @ a
+                        $dEq
+                        ds
+                        (GHC.Num.fromInteger @ a $dNum Grammar.action_33) of wild {
+                   GHC.Types.False
+                   -> case GHC.Classes.==
+                             @ a
+                             $dEq
+                             ds
+                             (GHC.Num.fromInteger @ a $dNum Grammar.action_32) of wild1 {
+                        GHC.Types.False
+                        -> case GHC.Classes.==
+                                  @ a
+                                  $dEq
+                                  ds
+                                  (GHC.Num.fromInteger @ a $dNum Grammar.action_31) of wild2 {
+                             GHC.Types.False
+                             -> case GHC.Classes.==
+                                       @ a
+                                       $dEq
+                                       ds
+                                       (GHC.Num.fromInteger @ a $dNum Grammar.action_38) of wild3 {
+                                  GHC.Types.False
+                                  -> Grammar.happyFail
+                                       @ (Grammar.HappyAbsSyn Grammar.Exp)
+                                       @ Grammar.Exp
+                                  GHC.Types.True -> Grammar.action_37 }
+                             GHC.Types.True -> Grammar.action_36 }
+                        GHC.Types.True -> Grammar.action_35 }
+                   GHC.Types.True -> Grammar.action_34 }) -}
+b06359167150162ca1997e12d7292687
+  action_6 ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 4, Strictness: <S(S),1*U(1*U)><L,U(U)><L,U><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ a
+                   (w :: GHC.Types.Int)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Tokens.Token)
+                   (w3 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token] -> Grammar.HappyIdentity a)) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Grammar.$waction_6 @ a ww1 w1 w2 w3 }) -}
+042a15891753430320ab245346e4c268
+  action_7 ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 4, Strictness: <S(S),1*U(1*U)><L,U(U)><L,U><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ a
+                   (w :: GHC.Types.Int)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Tokens.Token)
+                   (w3 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token] -> Grammar.HappyIdentity a)) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Grammar.$waction_7 @ a ww1 w1 w2 w3 }) -}
+bd9dbad23e95920559d7ab68cad5acb5
+  action_8 ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 4, Strictness: <S(S),1*U(1*U)><L,U(U)><L,U><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ a
+                   (w :: GHC.Types.Int)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Tokens.Token)
+                   (w3 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token] -> Grammar.HappyIdentity a)) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Grammar.$waction_8 @ a ww1 w1 w2 w3 }) -}
+0fbdf8642eb59ec4434dc11b237101fe
+  action_9 ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 6,
+     Strictness: <S(S),1*U(1*U)><L,U(U)><L,U><L,U><L,U><L,U(U,U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (6, True, False)
+                (\ @ a
+                   (w :: GHC.Types.Int)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Tokens.Token)
+                   (w3 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token] -> Grammar.HappyIdentity a))
+                   (w4 :: [Grammar.HappyState
+                             Tokens.Token
+                             (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                              -> [Tokens.Token] -> Grammar.HappyIdentity a)])
+                   (w5 :: Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Grammar.$waction_9 @ a ww1 w1 w2 w3 w4 w5 }) -}
+9b2defc02edbd6abf25823fca7516ecb
+  happyAccept ::
+    (GHC.Num.Num a1, GHC.Classes.Eq a1) =>
+    a1
+    -> t2
+    -> t1
+    -> t
+    -> Grammar.HappyStk a
+    -> b
+    -> Grammar.HappyIdentity a
+  {- Arity: 7, HasNoCafRefs,
+     Strictness: <L,1*U(A,A,A,A,A,A,1*C1(U))><S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U><L,A><L,A><L,A><S,1*U(U,1*U(U,A))>,
+     Unfolding: InlineRule (7, True, False)
+                (\ @ b
+                   @ a
+                   @ t
+                   @ t1
+                   @ t2
+                   @ a1
+                   ($dNum :: GHC.Num.Num a1)
+                   ($dEq :: GHC.Classes.Eq a1)
+                   (ds :: a1)
+                   (tk :: t2)
+                   (st :: t1)
+                   (sts :: t)
+                   (ds1 :: Grammar.HappyStk a) ->
+                 case GHC.Classes.==
+                        @ a1
+                        $dEq
+                        ds
+                        (GHC.Num.fromInteger @ a1 $dNum Grammar.happyAccept1) of wild {
+                   GHC.Types.False
+                   -> case ds1 of wild1 { Grammar.HappyStk ans ds2 ->
+                      (\ (tks :: b) -> ans)
+                        `cast`
+                      (<b>_R ->_R Sym (Grammar.N:HappyIdentity[0] <a>_R)) }
+                   GHC.Types.True
+                   -> case ds1 of wild1 { Grammar.HappyStk ds2 ds3 ->
+                      case ds3 of wild2 { Grammar.HappyStk ans ds4 ->
+                      (\ (tks :: b) -> ans)
+                        `cast`
+                      (<b>_R ->_R Sym (Grammar.N:HappyIdentity[0] <a>_R)) } } }) -}
+cd1e9d686fe63359e2875b84e37071e1
+  happyAccept1 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (1) -}
+71bc9345e43fed18d1c38e5873f4d42b
+  happyDoSeq :: a -> b -> b
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b (a1 :: a) (b1 :: b) ->
+                 case a1 of a2 { DEFAULT -> b1 }) -}
+d49ad33162817bd118696fd9d0b11cca
+  happyDontSeq :: a -> b -> b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S,1*U>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ a @ b (a1 :: a) (b1 :: b) -> b1) -}
+84bc2f70c430e15e5ef1daac970bb54b
+  happyDrop :: GHC.Types.Int -> [t] -> [t]
+  {- Arity: 2, Strictness: <S(S),1*U(1*U)><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ t (w :: GHC.Types.Int) (w1 :: [t]) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Grammar.$whappyDrop @ t ww1 w1 }) -}
+69df09cbafe49a7b434b9b4df0f92434
+  happyDropStk ::
+    GHC.Types.Int -> Grammar.HappyStk t -> Grammar.HappyStk t
+  {- Arity: 2, HasNoCafRefs -}
+d0b6d6714bcf28f214880c429f077306
+  happyError' :: [Tokens.Token] -> Grammar.HappyIdentity a
+  {- Arity: 1, Strictness: <B,A>x,
+     Unfolding: InlineRule (0, True, True)
+                Grammar.parseError
+                  `cast`
+                (forall (a :: <*>_N).
+                 <[Tokens.Token]>_R ->_R Sym (Grammar.N:HappyIdentity[0] <a>_R)) -}
+8de5da3ac1e824e82444fcd01d1c288c
+  happyError_ ::
+    (GHC.Num.Num a1, GHC.Classes.Eq a1) =>
+    a1 -> Tokens.Token -> [Tokens.Token] -> Grammar.HappyIdentity a
+  {- Arity: 5,
+     Strictness: <B,1*U(A,A,A,A,A,A,1*C1(U))><B,1*U(1*C1(C1(U)),A)><B,U><B,A><B,A>x,
+     Unfolding: InlineRule (5, True, False)
+                (\ @ a
+                   @ a1
+                   ($dNum :: GHC.Num.Num a1)
+                   ($dEq :: GHC.Classes.Eq a1)
+                   (ds :: a1)
+                   (tk :: Tokens.Token)
+                   (tks :: [Tokens.Token]) ->
+                 case GHC.Classes.==
+                        @ a1
+                        $dEq
+                        ds
+                        (GHC.Num.fromInteger
+                           @ a1
+                           $dNum
+                           Grammar.action_38) of wild { DEFAULT ->
+                 (Grammar.parseError1 @ a)
+                   `cast`
+                 (Sym (Grammar.N:HappyIdentity[0] <a>_R)) }) -}
+974c4ad889ecfbd889dbcc78a47beea8
+  happyFail ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 5, Strictness: <S(S),1*U(U)><L,U><L,U><L,U><L,U(U,U)>,
+     Inline: NOINLINE -}
+4eb379102be39ae549aae6053d7267b1
+  happyGoto ::
+    (GHC.Types.Int
+     -> GHC.Types.Int
+     -> t1
+     -> Grammar.HappyState t1 c
+     -> [Grammar.HappyState t1 c]
+     -> c)
+    -> GHC.Types.Int -> t1 -> t -> [Grammar.HappyState t1 c] -> c
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <C(C(C(C(S)))),U><L,U><L,U><L,A>, Inline: NOINLINE -}
+84001121a6c87ae0cfc09e54a82056f3
+  happyIdentity :: a -> Grammar.HappyIdentity a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Grammar.happyReturn2
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R ->_R Sym (Grammar.N:HappyIdentity[0] <a>_R)) -}
+c7bb4b33aae6749c96f5eb3b67faa70a
+  happyMonad2Reduce ::
+    (GHC.Num.Num a, GHC.Classes.Eq a) =>
+    GHC.Types.Int
+    -> t
+    -> (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+        -> Tokens.Token -> Grammar.HappyIdentity (Grammar.HappyAbsSyn t4))
+    -> a
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+          -> [Tokens.Token] -> Grammar.HappyIdentity b)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity b)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity b
+  {- Arity: 10,
+     Strictness: <L,1*U(A,A,A,A,A,A,1*C1(U))><S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U(U)><L,A><L,1*C1(C1(U))><L,U><L,U><L,U><L,U><L,U(U,U(U,U(U,U(U,U(U,U(U,U(U,U(U,U(U,U)))))))))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (10, True, True)
+                (\ @ b
+                   @ a
+                   @ t4
+                   @ t
+                   (w :: GHC.Num.Num a)
+                   (w1 :: GHC.Classes.Eq a)
+                   (w2 :: GHC.Types.Int)
+                   (w3 :: t)
+                   (w4 :: Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                          -> Tokens.Token -> Grammar.HappyIdentity (Grammar.HappyAbsSyn t4))
+                   (w5 :: a)
+                   (w6 :: Tokens.Token)
+                   (w7 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                             -> [Tokens.Token] -> Grammar.HappyIdentity b))
+                   (w8 :: [Grammar.HappyState
+                             Tokens.Token
+                             (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+                              -> [Tokens.Token] -> Grammar.HappyIdentity b)])
+                   (w9 :: Grammar.HappyStk (Grammar.HappyAbsSyn t4)) ->
+                 Grammar.$whappyMonad2Reduce
+                   @ b
+                   @ a
+                   @ t4
+                   @ t
+                   w
+                   w1
+                   w2
+                   w4
+                   w5
+                   w6
+                   w7
+                   w8
+                   w9) -}
+986a49e8e504d107cb91036408a28433
+  happyMonad2Reduce1 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
+869a10ecb01fec0e8f3ac42c590fb97e
+  happyMonad2Reduce2 :: [Tokens.Token] -> Grammar.HappyIdentity b
+  {- Strictness: x -}
+2d0e7411893c966049f33f31c1383f7e
+  happyMonadReduce ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+        -> Tokens.Token -> Grammar.HappyIdentity (Grammar.HappyAbsSyn t4))
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+          -> [Tokens.Token] -> Grammar.HappyIdentity b)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity b)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity b
+  {- Arity: 8,
+     Strictness: <L,U(U)><L,U><L,1*C1(C1(U))><S(S),1*U(U)><L,U><L,U><L,U><L,U(U,U(U,U(U,U(U,U(U,U(U,U(U,U(U,U(U,U)))))))))>,
+     Inline: NOINLINE -}
+4f63b7fe5a193f6aa2bf964c72ad63c5
+  happyNewToken ::
+    (GHC.Types.Int
+     -> GHC.Types.Int
+     -> Tokens.Token
+     -> Grammar.HappyState
+          Tokens.Token (t -> [Tokens.Token] -> Grammar.HappyIdentity a)
+     -> [Grammar.HappyState
+           Tokens.Token (t -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+     -> t
+     -> [Tokens.Token]
+     -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token (t -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> t
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 4,
+     Strictness: <C(C(C(C(C(C(C(S))))))),U><L,U><L,U><S,1*U>,
+     Unfolding: (\ @ a
+                   @ t
+                   (action :: GHC.Types.Int
+                              -> GHC.Types.Int
+                              -> Tokens.Token
+                              -> Grammar.HappyState
+                                   Tokens.Token (t -> [Tokens.Token] -> Grammar.HappyIdentity a)
+                              -> [Grammar.HappyState
+                                    Tokens.Token (t -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+                              -> t
+                              -> [Tokens.Token]
+                              -> Grammar.HappyIdentity a)
+                   (sts :: [Grammar.HappyState
+                              Tokens.Token (t -> [Tokens.Token] -> Grammar.HappyIdentity a)])
+                   (stk :: t)
+                   (ds :: [Tokens.Token]) ->
+                 case ds of wild {
+                   []
+                   -> action
+                        Grammar.happyNewToken7
+                        Grammar.happyNewToken7
+                        (Grammar.notHappyAtAll @ Tokens.Token)
+                        action
+                          `cast`
+                        (Sym (Grammar.N:HappyState[0]
+                                  <Tokens.Token>_R
+                                  <t -> [Tokens.Token] -> Grammar.HappyIdentity a>_R))
+                        sts
+                        stk
+                        (GHC.Types.[] @ Tokens.Token)
+                   : tk tks
+                   -> case tk of wild1 {
+                        Tokens.TokenConj
+                        -> action
+                             Grammar.happyNewToken6
+                             Grammar.happyNewToken6
+                             Tokens.TokenConj
+                             action
+                               `cast`
+                             (Sym (Grammar.N:HappyState[0]
+                                       <Tokens.Token>_R
+                                       <t -> [Tokens.Token] -> Grammar.HappyIdentity a>_R))
+                             sts
+                             stk
+                             tks
+                        Tokens.TokenDisj
+                        -> action
+                             Grammar.happyNewToken5
+                             Grammar.happyNewToken5
+                             Tokens.TokenDisj
+                             action
+                               `cast`
+                             (Sym (Grammar.N:HappyState[0]
+                                       <Tokens.Token>_R
+                                       <t -> [Tokens.Token] -> Grammar.HappyIdentity a>_R))
+                             sts
+                             stk
+                             tks
+                        Tokens.TokenImpl
+                        -> action
+                             Grammar.happyNewToken4
+                             Grammar.happyNewToken4
+                             Tokens.TokenImpl
+                             action
+                               `cast`
+                             (Sym (Grammar.N:HappyState[0]
+                                       <Tokens.Token>_R
+                                       <t -> [Tokens.Token] -> Grammar.HappyIdentity a>_R))
+                             sts
+                             stk
+                             tks
+                        Tokens.TokenLParen
+                        -> action
+                             Grammar.happyNewToken3
+                             Grammar.happyNewToken3
+                             Tokens.TokenLParen
+                             action
+                               `cast`
+                             (Sym (Grammar.N:HappyState[0]
+                                       <Tokens.Token>_R
+                                       <t -> [Tokens.Token] -> Grammar.HappyIdentity a>_R))
+                             sts
+                             stk
+                             tks
+                        Tokens.TokenRParen
+                        -> action
+                             Grammar.happyNewToken2
+                             Grammar.happyNewToken2
+                             Tokens.TokenRParen
+                             action
+                               `cast`
+                             (Sym (Grammar.N:HappyState[0]
+                                       <Tokens.Token>_R
+                                       <t -> [Tokens.Token] -> Grammar.HappyIdentity a>_R))
+                             sts
+                             stk
+                             tks
+                        Tokens.TokenVar happy_dollar_dollar
+                        -> action
+                             Grammar.happyNewToken1
+                             Grammar.happyNewToken1
+                             wild1
+                             action
+                               `cast`
+                             (Sym (Grammar.N:HappyState[0]
+                                       <Tokens.Token>_R
+                                       <t -> [Tokens.Token] -> Grammar.HappyIdentity a>_R))
+                             sts
+                             stk
+                             tks } }) -}
+ce2fd23e92490ccc8ca932ecdd634be6
+  happyNewToken1 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 5#) -}
+8af5fc8d3beba10dac30c0820072d966
+  happyNewToken2 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 10#) -}
+643faaf50a5a5e47acc86aae5a036cb3
+  happyNewToken3 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 9#) -}
+ad30e7325fd22432acb82e9a554a499d
+  happyNewToken4 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 8#) -}
+7535bab81a058082e5b1a7df69b9781a
+  happyNewToken5 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 7#) -}
+579ed5fe48755cb652be0fc2120e64bc
+  happyNewToken6 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 6#) -}
+31936292901295617daecca4e2bb182c
+  happyNewToken7 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 11#) -}
+f7789acf3d0b67830ef45a90e4b188bb
+  happyParse ::
+    (GHC.Types.Int
+     -> GHC.Types.Int
+     -> Tokens.Token
+     -> Grammar.HappyState
+          Tokens.Token (t -> [Tokens.Token] -> Grammar.HappyIdentity a)
+     -> [Grammar.HappyState
+           Tokens.Token (t -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+     -> t
+     -> [Tokens.Token]
+     -> Grammar.HappyIdentity a)
+    -> [Tokens.Token] -> Grammar.HappyIdentity a
+  {- Arity: 2, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ t
+                   @ a
+                   (start_state :: GHC.Types.Int
+                                   -> GHC.Types.Int
+                                   -> Tokens.Token
+                                   -> Grammar.HappyState
+                                        Tokens.Token
+                                        (t -> [Tokens.Token] -> Grammar.HappyIdentity a)
+                                   -> [Grammar.HappyState
+                                         Tokens.Token
+                                         (t -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+                                   -> t
+                                   -> [Tokens.Token]
+                                   -> Grammar.HappyIdentity a)
+                   (eta :: [Tokens.Token]) ->
+                 Grammar.happyNewToken
+                   @ a
+                   @ t
+                   start_state
+                   (Grammar.notHappyAtAll
+                      @ [Grammar.HappyState
+                           Tokens.Token (t -> [Tokens.Token] -> Grammar.HappyIdentity a)])
+                   (Grammar.notHappyAtAll @ t)
+                   eta) -}
+cc44a29ad51388d77e729a92c3190c98
+  happyReduce ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+        -> Grammar.HappyStk (Grammar.HappyAbsSyn t4))
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 8,
+     Strictness: <L,1*U(U)><L,U><L,1*C1(U(U,U))><S(S),1*U(U)><L,U><L,U><L,U><L,U(U,U)>,
+     Inline: NOINLINE -}
+aa176171779063cb6e270d9c4bf7894e
+  happyReduce_1 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 5,
+     Unfolding: (\ @ a ->
+                 Grammar.happySpecReduce_3
+                   @ a
+                   @ Grammar.Exp
+                   Grammar.happyReduce_7
+                   (Grammar.happyReduction_1 @ (Grammar.HappyAbsSyn Grammar.Exp))) -}
+f348f9c6f30f1dab06b1e5e19c4bd203
+  happyReduce_2 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 5,
+     Unfolding: (\ @ a ->
+                 Grammar.happySpecReduce_3
+                   @ a
+                   @ Grammar.Exp
+                   Grammar.happyReduce_7
+                   (Grammar.happyReduction_2 @ (Grammar.HappyAbsSyn Grammar.Exp))) -}
+945c2a815570ab696468dd9faaeca4af
+  happyReduce_3 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 5,
+     Unfolding: (\ @ a ->
+                 Grammar.happySpecReduce_3
+                   @ a
+                   @ Grammar.Exp
+                   Grammar.happyReduce_7
+                   (Grammar.happyReduction_3 @ (Grammar.HappyAbsSyn Grammar.Exp))) -}
+b9a19c89567a4351850016a7d3738b65
+  happyReduce_4 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 5,
+     Unfolding: (\ @ a @ t4 ->
+                 Grammar.happySpecReduce_3
+                   @ a
+                   @ t4
+                   Grammar.happyReduce_7
+                   (Grammar.happyReduction_4
+                      @ (Grammar.HappyAbsSyn t4)
+                      @ t4
+                      @ (Grammar.HappyAbsSyn t4))) -}
+5d67ffb4c9bd17441b2ab5fbe5f208dd
+  happyReduce_5 ::
+    GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 5,
+     Unfolding: (\ @ a ->
+                 Grammar.happySpecReduce_1
+                   @ a
+                   @ Grammar.Exp
+                   Grammar.happyReduce_7
+                   (Grammar.happyReduction_5 @ Grammar.Exp)) -}
+d51147d202597ba66957727902fb2d49
+  happyReduce_7 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 4#) -}
+0cb8c5e5c16b412022511de5ca225237
+  happyReduction_1 ::
+    Grammar.HappyAbsSyn Grammar.Exp
+    -> t
+    -> Grammar.HappyAbsSyn Grammar.Exp
+    -> Grammar.HappyAbsSyn Grammar.Exp
+  {- Arity: 3, Strictness: <S,1*U><L,A><S,1*U>m3,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ t
+                   (ds :: Grammar.HappyAbsSyn Grammar.Exp)
+                   (ds1 :: t)
+                   (ds2 :: Grammar.HappyAbsSyn Grammar.Exp) ->
+                 case ds of wild {
+                   DEFAULT
+                   -> Grammar.notHappyAtAll @ (Grammar.HappyAbsSyn Grammar.Exp)
+                   Grammar.HappyAbsSyn4 happy_var_3
+                   -> case ds2 of wild1 {
+                        DEFAULT
+                        -> Grammar.notHappyAtAll @ (Grammar.HappyAbsSyn Grammar.Exp)
+                        Grammar.HappyAbsSyn4 happy_var_1
+                        -> Grammar.HappyAbsSyn4
+                             @ Grammar.Exp
+                             (Grammar.Impl happy_var_1 happy_var_3) } }) -}
+862bb5d319f2f3a3334822f3ef49210a
+  happyReduction_2 ::
+    Grammar.HappyAbsSyn Grammar.Exp
+    -> t
+    -> Grammar.HappyAbsSyn Grammar.Exp
+    -> Grammar.HappyAbsSyn Grammar.Exp
+  {- Arity: 3, Strictness: <S,1*U><L,A><S,1*U>m3,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ t
+                   (ds :: Grammar.HappyAbsSyn Grammar.Exp)
+                   (ds1 :: t)
+                   (ds2 :: Grammar.HappyAbsSyn Grammar.Exp) ->
+                 case ds of wild {
+                   DEFAULT
+                   -> Grammar.notHappyAtAll @ (Grammar.HappyAbsSyn Grammar.Exp)
+                   Grammar.HappyAbsSyn4 happy_var_3
+                   -> case ds2 of wild1 {
+                        DEFAULT
+                        -> Grammar.notHappyAtAll @ (Grammar.HappyAbsSyn Grammar.Exp)
+                        Grammar.HappyAbsSyn4 happy_var_1
+                        -> Grammar.HappyAbsSyn4
+                             @ Grammar.Exp
+                             (Grammar.Disj happy_var_1 happy_var_3) } }) -}
+000f4dd89feb63cfffd3704cf57240f3
+  happyReduction_3 ::
+    Grammar.HappyAbsSyn Grammar.Exp
+    -> t
+    -> Grammar.HappyAbsSyn Grammar.Exp
+    -> Grammar.HappyAbsSyn Grammar.Exp
+  {- Arity: 3, Strictness: <S,1*U><L,A><S,1*U>m3,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ t
+                   (ds :: Grammar.HappyAbsSyn Grammar.Exp)
+                   (ds1 :: t)
+                   (ds2 :: Grammar.HappyAbsSyn Grammar.Exp) ->
+                 case ds of wild {
+                   DEFAULT
+                   -> Grammar.notHappyAtAll @ (Grammar.HappyAbsSyn Grammar.Exp)
+                   Grammar.HappyAbsSyn4 happy_var_3
+                   -> case ds2 of wild1 {
+                        DEFAULT
+                        -> Grammar.notHappyAtAll @ (Grammar.HappyAbsSyn Grammar.Exp)
+                        Grammar.HappyAbsSyn4 happy_var_1
+                        -> Grammar.HappyAbsSyn4
+                             @ Grammar.Exp
+                             (Grammar.Conj happy_var_1 happy_var_3) } }) -}
+468c14c0434d3eefb917be486d996cf5
+  happyReduction_4 ::
+    t1 -> Grammar.HappyAbsSyn t4 -> t -> Grammar.HappyAbsSyn t4
+  {- Arity: 3, Strictness: <L,A><S,1*U><L,A>m3,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ t
+                   @ t4
+                   @ t1
+                   (ds :: t1)
+                   (ds1 :: Grammar.HappyAbsSyn t4)
+                   (ds2 :: t) ->
+                 case ds1 of wild {
+                   DEFAULT -> Grammar.notHappyAtAll @ (Grammar.HappyAbsSyn t4)
+                   Grammar.HappyAbsSyn4 happy_var_2
+                   -> Grammar.HappyAbsSyn4 @ t4 happy_var_2 }) -}
+d4b85b2fb21dc5767258927a3583cf4e
+  happyReduction_5 ::
+    Grammar.HappyAbsSyn t -> Grammar.HappyAbsSyn Grammar.Exp
+  {- Arity: 1, Strictness: <S,1*U>m3,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ t (ds :: Grammar.HappyAbsSyn t) ->
+                 case ds of wild {
+                   DEFAULT
+                   -> Grammar.notHappyAtAll @ (Grammar.HappyAbsSyn Grammar.Exp)
+                   Grammar.HappyTerminal ds1
+                   -> case ds1 of wild1 {
+                        DEFAULT
+                        -> Grammar.notHappyAtAll @ (Grammar.HappyAbsSyn Grammar.Exp)
+                        Tokens.TokenVar happy_var_1
+                        -> Grammar.HappyAbsSyn4
+                             @ Grammar.Exp
+                             (Grammar.Var happy_var_1) } }) -}
+d9729e1ce9f52e91c816d53d909478bd
+  happyReturn :: a -> Grammar.HappyIdentity a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Grammar.happyReturn2
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R ->_R Sym (Grammar.N:HappyIdentity[0] <a>_R)) -}
+06fb6d3fe04393c4615368338d65b2ad
+  happyReturn1 :: a -> b -> Grammar.HappyIdentity a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                Grammar.happyReturn3
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a>_R ->_R <b>_R ->_R Sym (Grammar.N:HappyIdentity[0] <a>_R)) -}
+8ec6fd59207b4ce2b2e2ee78b052144d
+  happyReturn2 :: a -> a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True) (\ @ a (tpl :: a) -> tpl) -}
+cf4b071159c0914476e961c81ea50e73
+  happyReturn3 :: a -> b -> a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,A>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ a @ b (a1 :: a) (tks :: b) -> a1) -}
+2e2ba5b782123f82cde902c0da579159
+  happyRunIdentity :: Grammar.HappyIdentity t -> t
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Grammar.happyRunIdentity1
+                  `cast`
+                (forall (t :: <*>_N).
+                 <Grammar.HappyIdentity t>_R
+                 ->_R Grammar.N:HappyIdentity[0] <t>_R) -}
+d9479cccbcd1144a16b7379f26ed8b49
+  happyRunIdentity1 ::
+    Grammar.HappyIdentity t -> Grammar.HappyIdentity t
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ t (ds :: Grammar.HappyIdentity t) -> ds) -}
+c2094f4400005c967daa4f0259b54b2b
+  happySeq :: a -> b -> b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                (\ @ b @ a -> Grammar.happyDontSeq @ a @ b) -}
+99116719bbee4e5a349ad00c90c0afc7
+  happyShift ::
+    (GHC.Num.Num a, GHC.Classes.Eq a) =>
+    (GHC.Types.Int
+     -> GHC.Types.Int
+     -> Tokens.Token
+     -> Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a1)
+     -> [Grammar.HappyState
+           Tokens.Token
+           (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+            -> [Tokens.Token] -> Grammar.HappyIdentity a1)]
+     -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+     -> [Tokens.Token]
+     -> Grammar.HappyIdentity a1)
+    -> a
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a1)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a1)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a1
+  {- Arity: 8,
+     Strictness: <L,1*U(A,A,A,A,A,A,1*C1(U))><S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U><L,U><L,U><L,U><L,U><L,U(U,U)>,
+     Inline: NOINLINE -}
+f89d46cce488948830a7afe642f39351
+  happySpecReduce_0 ::
+    GHC.Types.Int
+    -> Grammar.HappyAbsSyn t4
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 7,
+     Strictness: <L,U><L,U><S(S),1*U(U)><L,U><L,U><L,U><L,U(U,U)>,
+     Inline: NOINLINE -}
+04ce59ab4f46525fcbd5f99e73e3da2b
+  happySpecReduce_1 ::
+    GHC.Types.Int
+    -> (Grammar.HappyAbsSyn t4 -> Grammar.HappyAbsSyn t4)
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 7,
+     Strictness: <L,U><L,1*C1(U)><S(S),1*U(U)><L,U><L,U><L,U><L,U(U,U)>,
+     Inline: NOINLINE -}
+c04e34799bce894836090f30561726b5
+  happySpecReduce_2 ::
+    GHC.Types.Int
+    -> (Grammar.HappyAbsSyn t4
+        -> Grammar.HappyAbsSyn t4 -> Grammar.HappyAbsSyn t4)
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 7,
+     Strictness: <L,U><L,1*C1(C1(U))><S(S),1*U(U)><L,U><L,U><L,U><L,U(U,U(U,U))>,
+     Inline: NOINLINE -}
+4f1a0816f13e9fc8fe993ad648f4fd29
+  happySpecReduce_3 ::
+    GHC.Types.Int
+    -> (Grammar.HappyAbsSyn t4
+        -> Grammar.HappyAbsSyn t4
+        -> Grammar.HappyAbsSyn t4
+        -> Grammar.HappyAbsSyn t4)
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+          -> [Tokens.Token] -> Grammar.HappyIdentity a)
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+           -> [Tokens.Token] -> Grammar.HappyIdentity a)]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn t4)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity a
+  {- Arity: 7,
+     Strictness: <L,U><L,1*C1(C1(C1(U)))><S(S),1*U(U)><L,U><L,U><L,U><L,U(U,U(U,U(U,U)))>,
+     Inline: NOINLINE -}
+d9729e1ce9f52e91c816d53d909478bd
+  happyThen ::
+    Grammar.HappyIdentity a
+    -> (a -> Grammar.HappyIdentity b) -> Grammar.HappyIdentity b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><C(S),1*C1(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ a
+                   @ b
+                   (ds :: Grammar.HappyIdentity a)
+                   (q :: a -> Grammar.HappyIdentity b) ->
+                 q ds `cast` (Grammar.N:HappyIdentity[0] <a>_R)) -}
+df7e2a9e67eb6b3f995b4009cd606dfd
+  happyThen1 ::
+    GHC.Base.Monad m => m t1 -> (t1 -> t -> m b) -> t -> m b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LC(C(S))LLL),1*U(A,1*C1(C1(U)),A,A,A)><L,U><L,C(C1(U))><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ b
+                   @ t
+                   @ t1
+                   @ (m :: * -> *)
+                   ($dMonad :: GHC.Base.Monad m)
+                   (m1 :: m t1)
+                   (k :: t1 -> t -> m b)
+                   (tks :: t) ->
+                 GHC.Base.>>= @ m $dMonad @ t1 @ b m1 (\ (a :: t1) -> k a tks)) -}
+a13cfbfe72c1743cbc5e7ae32cf8a330
+  notHappyAtAll :: a
+  {- Strictness: x -}
+3f4a060dca2a123580c4f1d328358e1a
+  parseError :: [Tokens.Token] -> a
+  {- Arity: 1, Strictness: <B,A>x,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ a (ds :: [Tokens.Token]) -> Grammar.parseError1 @ a) -}
+6fb5c693dce3e4950156e236a8a1f04e
+  parseError1 :: a
+  {- Strictness: x -}
+3fd981c9b0e6bbfd5bb32295ebb27ca7
+  parseExpr :: [Tokens.Token] -> Grammar.Exp
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (tks :: [Tokens.Token]) ->
+                 case (Grammar.happyNewToken
+                         @ (Grammar.HappyAbsSyn Grammar.Exp)
+                         @ (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp))
+                         Grammar.parseExpr1
+                         (Grammar.notHappyAtAll
+                            @ [Grammar.HappyState
+                                 Tokens.Token
+                                 (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                                  -> [Tokens.Token]
+                                  -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))])
+                         (Grammar.notHappyAtAll
+                            @ (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)))
+                         tks)
+                        `cast`
+                      (Grammar.N:HappyIdentity[0]
+                           <Grammar.HappyAbsSyn Grammar.Exp>_R) of wild {
+                   DEFAULT
+                   -> (Grammar.notHappyAtAll @ (Grammar.HappyIdentity Grammar.Exp))
+                        `cast`
+                      (Grammar.N:HappyIdentity[0] <Grammar.Exp>_R)
+                   Grammar.HappyAbsSyn4 z -> z }) -}
+0627bebbe9f529245cc351bdbf413af9
+  parseExpr1 ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> Tokens.Token
+    -> Grammar.HappyState
+         Tokens.Token
+         (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+          -> [Tokens.Token]
+          -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))
+    -> [Grammar.HappyState
+          Tokens.Token
+          (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+           -> [Tokens.Token]
+           -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))]
+    -> Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+    -> [Tokens.Token]
+    -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp)
+  {- Arity: 4, Strictness: <S(S),1*U(1*U)><L,U(U)><L,U><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Tokens.Token)
+                   (w3 :: Grammar.HappyState
+                            Tokens.Token
+                            (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                             -> [Tokens.Token]
+                             -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Grammar.$wlvl3 ww1 w1 w2 w3 }) -}
+instance GHC.Base.Applicative [Grammar.HappyIdentity]
+  = Grammar.$fApplicativeHappyIdentity
+instance GHC.Base.Functor [Grammar.HappyIdentity]
+  = Grammar.$fFunctorHappyIdentity
+instance GHC.Base.Monad [Grammar.HappyIdentity]
+  = Grammar.$fMonadHappyIdentity
+instance GHC.Show.Show [Grammar.Exp] = Grammar.$fShowExp
+"SPEC/Grammar $dmfail @ HappyIdentity" [ALWAYS] forall ($dMonad :: GHC.Base.Monad
+                                                                     Grammar.HappyIdentity)
+  GHC.Base.$dmfail @ Grammar.HappyIdentity $dMonad
+  = Grammar.$fMonadHappyIdentity_$s$dmfail
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

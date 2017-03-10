@@ -1,0 +1,166 @@
+
+==================== FINAL INTERFACE ====================
+2017-03-09 19:46:32.925892599 UTC
+
+interface main@main:Expression 8002
+  interface hash: 6ef15155146cf1dc8820b3f801d999ad
+  ABI hash: 4b0ed677518b323a8a7c6307c2d724fe
+  export-list hash: 3ddcdde2e33661af180532362269198f
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: d38717052b7af44e5532654adaa9e76c
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Expression.Expression{Expression.Conj Expression.Disj Expression.Impl Expression.Var}
+module dependencies:
+package dependencies: base-4.9.1.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+743c6e92a239713d755c1611f44dd565
+  $fShowExpression :: GHC.Show.Show Expression.Expression
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Expression.Expression
+                  Expression.$fShowExpression_$cshowsPrec
+                  Expression.$fShowExpression_$cshow
+                  Expression.$fShowExpression_$cshowList -}
+743c6e92a239713d755c1611f44dd565
+  $fShowExpression1 ::
+    Expression.Expression -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2, HasNoCafRefs,
+     Unfolding: (\ (x :: Expression.Expression)
+                   (s :: GHC.Base.String)[OneShot] ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (Expression.$fShowExpression_$cshow x)
+                   s) -}
+743c6e92a239713d755c1611f44dd565
+  $fShowExpression_$cshow :: Expression.Expression -> GHC.Base.String
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+743c6e92a239713d755c1611f44dd565
+  $fShowExpression_$cshowList ::
+    [Expression.Expression] -> GHC.Show.ShowS
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ (ls :: [Expression.Expression])
+                   (s :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ Expression.Expression
+                   Expression.$fShowExpression1
+                   ls
+                   s) -}
+743c6e92a239713d755c1611f44dd565
+  $fShowExpression_$cshowsPrec ::
+    GHC.Types.Int -> Expression.Expression -> GHC.Show.ShowS
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><S,1*U><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (ds :: GHC.Types.Int)
+                   (x :: Expression.Expression)
+                   (s :: GHC.Base.String) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr
+                      @ GHC.Types.Char
+                      @ b
+                      c
+                      n
+                      (Expression.$fShowExpression_$cshow x))
+                   s) -}
+5da317208902b512616f927ff27e9dc6
+  $tc'Conj :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   4165784024967877334##
+                   1814720253481691856##
+                   Expression.$trModule
+                   Expression.$tc'Conj1) -}
+45a735c38135baf8a85cc53accc0f21e
+  $tc'Conj1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Conj"#) -}
+352e762565cfd098d6d4d45ee6b8c4d2
+  $tc'Disj :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12442536066911133717##
+                   9157297634147660183##
+                   Expression.$trModule
+                   Expression.$tc'Disj1) -}
+765a8e9b749acb10683ccdff941efdb1
+  $tc'Disj1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Disj"#) -}
+ca896a5471e75944c7b5ed49c7e6fb97
+  $tc'Impl :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   4326293991137994554##
+                   11930080149079490639##
+                   Expression.$trModule
+                   Expression.$tc'Impl1) -}
+1fcdebd8b34516c3cd1d60f208040788
+  $tc'Impl1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Impl"#) -}
+190299e168f50f3c833ffd34e4c277e9
+  $tc'Var :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   15864581452990203282##
+                   15772258623975490018##
+                   Expression.$trModule
+                   Expression.$tc'Var1) -}
+ffe740f17e842f7459e98992ba73c0b1
+  $tc'Var1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Var"#) -}
+793168cb399479d181c49f56c09c86f5
+  $tcExpression :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   11060884939898847159##
+                   4421950228442828575##
+                   Expression.$trModule
+                   Expression.$trModule1) -}
+d8c86138b2f6737b9423493ee27bfe6a
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Expression.$trModule2
+                   Expression.$trModule1) -}
+f7e72337fbdaecf8be9010f6991924aa
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Expression"#) -}
+40c5c2059d31ca57df933d612e720e27
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+743c6e92a239713d755c1611f44dd565
+  data Expression
+    = Var GHC.Base.String
+    | Conj Expression.Expression Expression.Expression
+    | Disj Expression.Expression Expression.Expression
+    | Impl Expression.Expression Expression.Expression
+instance [safe] GHC.Show.Show [Expression.Expression]
+  = Expression.$fShowExpression
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

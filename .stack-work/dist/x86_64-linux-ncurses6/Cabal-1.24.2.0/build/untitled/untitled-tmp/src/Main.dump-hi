@@ -1,0 +1,111 @@
+
+==================== FINAL INTERFACE ====================
+2017-03-10 00:46:14.93917976 UTC
+
+interface main@main:Main 8002
+  interface hash: 41f2c28fcbfcc8c8a1f23f9a841996e1
+  ABI hash: d30d188842070ff5a5b419615f3dea24
+  export-list hash: 1667d763ef387690510731dbfe92c2bf
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: aac0d5f01b647b5b72eedda01c5b3266
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.main
+module dependencies: Grammar Tokens
+package dependencies: array-0.5.1.1@array-0.5.1.1 base-4.9.1.0
+                      ghc-prim-0.5.0.0 integer-gmp-1.0.0.1
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:GHC.Exts
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
+import  -/  base-4.9.1.0:Data.Monoid 51cc9cd8c130d49ba96b7c2c2406022b
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-4.9.1.0:System.IO e4a64a8e3dce8616da54f0ee7104f7db
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+import  -/  Grammar ab5c0831188c9260dd4740cb4e9bdb05
+  exports: 7d4cc9b36ac25fe677e7dd34f350ee27
+  parseExpr 3fd981c9b0e6bbfd5bb32295ebb27ca7
+import  -/  Tokens 445fa30c39a95907cb589d025f092774
+  exports: f7ef56c16412fb075a475147c5bea63c
+  scanTokens efd2a2c67b643eff763d951bcbd5a9d5
+d6831ef04cb9301b090dfae6f7bb7ec7
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Main.$trModule2 Main.$trModule1) -}
+847d9fc3b8e6f0b424199f36b4999bb2
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Main"#) -}
+24ef6042833e75ffd7aa98b83ecca98d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+6d9640359dafeed0623e0d61b0be5fe9
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+b46ebfb164a98f4c538b17219a0bd2f9
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State#
+                             GHC.Prim.RealWorld)[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   Main.main2
+                   GHC.Types.True
+                   eta) -}
+fe930ae7168726e4b544b56baaade29e
+  main2 :: GHC.Base.String
+  {- Unfolding: (case (Grammar.happyNewToken
+                         @ (Grammar.HappyAbsSyn Grammar.Exp)
+                         @ (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp))
+                         Grammar.parseExpr1
+                         (Grammar.notHappyAtAll
+                            @ [Grammar.HappyState
+                                 Tokens.Token
+                                 (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
+                                  -> [Tokens.Token]
+                                  -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))])
+                         (Grammar.notHappyAtAll
+                            @ (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)))
+                         Main.main3)
+                        `cast`
+                      (Grammar.N:HappyIdentity[0]
+                           <Grammar.HappyAbsSyn Grammar.Exp>_R) of wild {
+                   DEFAULT -> case Grammar.notHappyAtAll ret_ty GHC.Base.String of {}
+                   Grammar.HappyAbsSyn4 z
+                   -> Grammar.$w$cshowsPrec 0# z (GHC.Types.[] @ GHC.Types.Char) }) -}
+88e132825d990207f8bf16c6ab84b3d6
+  main3 :: [Tokens.Token]
+  {- Unfolding: (Tokens.$wgo
+                   Tokens.alexScanTokens1
+                   (GHC.Types.[] @ Tokens.Byte)
+                   Main.main4) -}
+5d0bbc1ed30d47a32ce5b375abc547e1
+  main4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "x -> a123&y -> h"#) -}
+e1e3b430f13245b664a149ebbc8b4ed9
+  main5 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+
