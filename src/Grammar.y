@@ -15,68 +15,77 @@ import Tokens
     '->'    { TokenImpl }
     '('     { TokenLParen }
     ')'     { TokenRParen }
-    '+'      { \s -> TokenPlus }
-    '-'     { \s -> TokenMinus }
-    '='      { \s -> TokenEq }
-    '''      { \s -> TokenInc }
-    '!'      { \s -> TokenNeg }
-    '@'      { \s -> TokenQtfrAll }
-    '?'      { \s -> TokenQtfrOne }
-    '0'      { \s -> TokenZero}
+    '+'      { TokenPlus }
+    '-'     { TokenMinus }
+    '='      { TokenEq }
+     q        { TokenInc }
+    '!'      { TokenNeg }
+    '@'      { TokenQtfrAll }
+    '?'      { TokenQtfrOne }
+    '0'      { TokenZero }
+    '*'      { TokenMult }
+    ','      { TokenComma }
 
-
-%%
 
 %right '->'
 %left '|'
 %left '&'
 %right '!'
-%nonassoc '@' '?'
 
 %nonassoc '='
 %left '+' '-'
-%right '''
+%left '*'
+%right q
+%%
 
-Exp : '@' lowname Fact                   { QtdrAll (Var $2) $3 }
-    | '?' lowname Fact                   { QtdrOne (Var $2) $3 }
-    | Term '=' Term                      { Eq $1 $3}
-    | Exp '->' Exp                       { Impl $1 $3 }
-    | Exp '|' Exp                        { Disj $1 $3 }
-    | Exp '&' Exp                        { Conj $1 $3 }
 
-Fact :
-    | upname '(' args ')'                { Pred $1 $2 }
-    | '!' Fact                           { Neg $2 }
+Exp : Exp '->' Exp                       { BinOp '>' $1 $3 }
+    | Exp '|' Exp                        { BinOp '|' $1 $3 }
+    | Exp '&' Exp                        { BinOp '&' $1 $3 }
+    | Fact                               { $1 }
+
+Fact : Term '=' Term                      { BinOp '=' $1 $3}
+    | '@' lowname Fact                   { Qtfr '@' (Var $2) $3 }
+    | '?' lowname Fact                   { Qtfr '?' (Var $2) $3 }
+    | upname '(' args ')'                { Funct 'P' $1 $3 }
+    | upname                             { Funct 'P' $1 [] }
+    | '!' Fact                           { UnOp '!' $2 }
     | '(' Exp ')'                        { $2 }
 
 args : {- empty -}          { [] }
+    | Term                  { [$1] }
     | Term ',' args         { $1 : $3 }
 
-Term : Term '+' Term         { Plus $1 $3 }
-    | Term '-' Term          { Minus $1 $3 }
-    | Term '''               { Inc $1 }
-    | lowname stub           { Funct }
+Term : Term '+' Term         { BinOp '+' $1 $3 }
+    | Term '-' Term          { BinOp '-' $1 $3 }
+    | Term '*' Term          { BinOp '*' $1 $3 }
+    | Term q                 { UnOp 'q' $1 }
+    | lowname '(' args ')'   { Funct 'f' $1 $3 }
     | '(' Term ')'           { $2 }
+    | lowname                { Var $1 }
     | '0'                    { Zero }
 
 {
 
 parseError :: [Token] -> a
-parseError _ = error "Parse error"
+parseError ts = error $ "Parse error" ++ "\n" ++ show ts
 
-data Expr = Impl Expr Expr
-         | Conj Expr Expr
-         | Disj Expr Expr
-         | Neg Expr
-         | Pred [Expr]
-         | Funct [Expr]
-         | QtfrAll Var Expr
-         | QtfrOne Var Expr
-         | Eq Expr Expr
-         | Inc Expr
-         | Plus Expr Expr
-         | Minus Expr Expr
+data Expr = BinOp Char Expr Expr
+         | UnOp Char Expr
+         | Funct Char String [Expr]
+         | Qtfr Char Expr Expr
          | Var String
          | Zero
-         deriving (Show, Eq)
+         deriving Eq
+
+instance Show Expr where
+    --lazyness
+    show (BinOp '>' a b) = "(" ++ show a ++ "->" ++ show b ++ ")"
+    show (BinOp op a b) = "(" ++ show a ++ [op] ++ show b ++ ")"
+    show (Funct _ a b) = a ++ "(" ++ show b ++ ")"
+    show (Qtfr ch a b) = [ch] ++ show a ++ "(" ++ show b ++ ")"
+    show (UnOp '!' a) = "!" ++ "(" ++ show a ++ ")"
+    show (UnOp 'q' a) = "(" ++ show a ++ ")" ++ "'"
+    show (Var a) = a
+    show Zero = "0"
 }

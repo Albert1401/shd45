@@ -21,6 +21,34 @@
   (major1) == 4 && (major2) <  9 || \
   (major1) == 4 && (major2) == 9 && (minor) <= 1)
 
+/* package mtl-2.2.1 */
+#define VERSION_mtl "2.2.1"
+#define MIN_VERSION_mtl(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  2 || \
+  (major1) == 2 && (major2) == 2 && (minor) <= 1)
+
+/* package split-0.2.3.1 */
+#define VERSION_split "0.2.3.1"
+#define MIN_VERSION_split(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  2 || \
+  (major1) == 0 && (major2) == 2 && (minor) <= 3)
+
+/* package unordered-containers-0.2.7.2 */
+#define VERSION_unordered_containers "0.2.7.2"
+#define MIN_VERSION_unordered_containers(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  2 || \
+  (major1) == 0 && (major2) == 2 && (minor) <= 7)
+
+/* package vector-0.11.0.0 */
+#define VERSION_vector "0.11.0.0"
+#define MIN_VERSION_vector(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  11 || \
+  (major1) == 0 && (major2) == 11 && (minor) <= 0)
+
 /* tool alex-3.2.1 */
 #define TOOL_VERSION_alex "3.2.1"
 #define MIN_TOOL_VERSION_alex(major1,major2,minor) (\

@@ -373,22 +373,22 @@ alexGetByte (_,[],(c:s)) = case utf8Encode c of
 alex_tab_size :: Int
 alex_tab_size = 8
 alex_base :: Array Int Int
-alex_base = listArray (0,17) [1,-6,0,0,0,0,0,-33,-1,0,-61,0,0,0,0,0,0,0]
+alex_base = listArray (0,18) [-8,-3,0,0,0,0,0,0,-37,-7,0,0,-41,0,0,0,0,0,0]
 
 alex_table :: Array Int Int
-alex_table = listArray (0,256) [0,4,16,1,1,1,1,1,0,0,1,1,1,1,1,7,7,7,7,7,7,7,7,7,7,0,1,0,0,0,0,0,0,1,12,0,0,0,0,2,13,5,6,0,9,17,10,8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,11,0,15,14,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+alex_table = listArray (0,252) [0,1,1,1,1,1,1,1,1,1,1,8,8,8,8,8,8,8,8,8,8,4,0,0,1,14,0,0,0,1,2,15,5,6,11,10,18,12,0,0,7,9,9,9,9,9,9,9,9,9,9,0,0,13,0,17,16,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 alex_check :: Array Int Int
-alex_check = listArray (0,256) [-1,62,1,9,10,11,12,13,-1,-1,9,10,11,12,13,48,49,50,51,52,53,54,55,56,57,-1,32,-1,-1,-1,-1,-1,-1,32,33,-1,-1,-1,-1,38,39,40,41,-1,43,44,45,48,49,50,51,52,53,54,55,56,57,-1,-1,-1,-1,-1,61,-1,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,-1,-1,-1,-1,-1,-1,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,-1,124,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
+alex_check = listArray (0,252) [-1,9,10,11,12,13,9,10,11,12,13,48,49,50,51,52,53,54,55,56,57,62,-1,-1,32,33,-1,-1,-1,32,38,39,40,41,42,43,44,45,-1,-1,48,48,49,50,51,52,53,54,55,56,57,-1,-1,61,-1,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,-1,-1,-1,-1,-1,-1,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,-1,124,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
 
 alex_deflt :: Array Int Int
-alex_deflt = listArray (0,17) [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
+alex_deflt = listArray (0,18) [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
 
-alex_accept = listArray (0::Int,17) [AlexAccNone,AlexAccSkip,AlexAcc 15,AlexAcc 14,AlexAcc 13,AlexAcc 12,AlexAcc 11,AlexAcc 10,AlexAcc 9,AlexAcc 8,AlexAcc 7,AlexAcc 6,AlexAcc 5,AlexAcc 4,AlexAcc 3,AlexAcc 2,AlexAcc 1,AlexAcc 0]
+alex_accept = listArray (0::Int,18) [AlexAccNone,AlexAccSkip,AlexAcc 16,AlexAcc 15,AlexAcc 14,AlexAcc 13,AlexAcc 12,AlexAcc 11,AlexAcc 10,AlexAcc 9,AlexAcc 8,AlexAcc 7,AlexAcc 6,AlexAcc 5,AlexAcc 4,AlexAcc 3,AlexAcc 2,AlexAcc 1,AlexAcc 0]
 
-alex_actions = array (0::Int,16) [(15,alex_action_1),(14,alex_action_2),(13,alex_action_3),(12,alex_action_4),(11,alex_action_5),(10,alex_action_6),(9,alex_action_7),(8,alex_action_8),(7,alex_action_9),(6,alex_action_10),(5,alex_action_11),(4,alex_action_12),(3,alex_action_13),(2,alex_action_14),(1,alex_action_15),(0,alex_action_16)]
+alex_actions = array (0::Int,17) [(16,alex_action_1),(15,alex_action_2),(14,alex_action_3),(13,alex_action_4),(12,alex_action_5),(11,alex_action_6),(10,alex_action_7),(9,alex_action_8),(8,alex_action_9),(7,alex_action_10),(6,alex_action_11),(5,alex_action_12),(4,alex_action_13),(3,alex_action_14),(2,alex_action_15),(1,alex_action_16),(0,alex_action_17)]
 
-{-# LINE 29 "Tokens.x" #-}
+{-# LINE 30 "Tokens.x" #-}
 
 data Token = TokenConj
            | TokenZero
@@ -406,6 +406,7 @@ data Token = TokenConj
            | TokenEq
            | TokenQtfrAll
            | TokenQtfrOne
+           | TokenMult
            deriving (Eq,Show)
 
 scanTokens = alexScanTokens
@@ -415,17 +416,18 @@ alex_action_2 =  \s -> TokenDisj
 alex_action_3 =  \s -> TokenImpl 
 alex_action_4 =  \s -> TokenLParen 
 alex_action_5 =  \s -> TokenRParen 
-alex_action_6 =  \s -> TokenName1 s 
-alex_action_7 =  \s -> TokenName2 s
-alex_action_8 =  \s -> TokenPlus 
-alex_action_9 =  \s -> TokenMinus 
-alex_action_10 =  \s -> TokenEq 
-alex_action_11 =  \s -> TokenNeg 
-alex_action_12 =  \s -> TokenInc 
-alex_action_13 =  \s -> TokenQtfrAll 
-alex_action_14 =  \s -> TokenQtfrOne 
-alex_action_15 =  \s -> TokenZero
-alex_action_16 =  \s -> TokenComma 
+alex_action_6 =  \s -> TokenZero 
+alex_action_7 =  \s -> TokenName1 s 
+alex_action_8 =  \s -> TokenName2 s
+alex_action_9 =  \s -> TokenPlus 
+alex_action_10 =  \s -> TokenMult 
+alex_action_11 =  \s -> TokenMinus 
+alex_action_12 =  \s -> TokenEq 
+alex_action_13 =  \s -> TokenNeg 
+alex_action_14 =  \s -> TokenInc 
+alex_action_15 =  \s -> TokenQtfrAll 
+alex_action_16 =  \s -> TokenQtfrOne 
+alex_action_17 =  \s -> TokenComma 
 {-# LINE 1 "templates/GenericTemplate.hs" #-}
 {-# LINE 1 "templates/GenericTemplate.hs" #-}
 {-# LINE 1 "<built-in>" #-}

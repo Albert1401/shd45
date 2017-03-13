@@ -1,39 +1,132 @@
 
 ==================== FINAL INTERFACE ====================
-2017-03-10 00:46:14.93917976 UTC
+2017-03-13 00:49:26.964086777 UTC
 
 interface main@main:Main 8002
-  interface hash: 41f2c28fcbfcc8c8a1f23f9a841996e1
-  ABI hash: d30d188842070ff5a5b419615f3dea24
-  export-list hash: 1667d763ef387690510731dbfe92c2bf
-  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  interface hash: 38d09bcc4ddaae4b9ed2d2e0f0ee4b28
+  ABI hash: 5bb1692a47e7701923a5040f9d5a4e29
+  export-list hash: 79b4e131c643df39bdb9f13bb557d071
+  orphan hash: 1df844a655f37f6646d2128a9d11d5d2
   flag hash: aac0d5f01b647b5b72eedda01c5b3266
   sig of: Nothing
   used TH splices: False
   where
 exports:
+  Main.help
   Main.main
-module dependencies: Grammar Tokens
+  Main.parse
+module dependencies: Checker Grammar Tokens
 package dependencies: array-0.5.1.1@array-0.5.1.1 base-4.9.1.0
-                      ghc-prim-0.5.0.0 integer-gmp-1.0.0.1
+                      binary-0.8.3.0@binary-0.8.3.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      hashable-1.2.5.0@hashable-1.2.5.0-F4MWeNuv2sjJRqBd2T5ul4
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      primitive-0.6.1.0@primitive-0.6.1.0-6AbSTw9JXz141LE5p6LGH
+                      split-0.2.3.1@split-0.2.3.1-FWyXC6nhV0H3AfM8IzrEFk
+                      text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR
+                      transformers-0.5.2.0@transformers-0.5.2.0
+                      unordered-containers-0.2.7.2@unordered-containers-0.2.7.2-8AmrySQXjRGF6VciYs51fM
+                      vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG
 orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         hashable-1.2.5.0@hashable-1.2.5.0-F4MWeNuv2sjJRqBd2T5ul4:Data.Hashable.Generic
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Lazy
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Show
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+         vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector.Fusion.Bundle
 family instance modules: base-4.9.1.0:Control.Applicative
-                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
-                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
-                         base-4.9.1.0:Data.Version base-4.9.1.0:GHC.Exts
-                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
-                         base-4.9.1.0:GHC.TypeLits
-import  -/  base-4.9.1.0:Data.Monoid 51cc9cd8c130d49ba96b7c2c2406022b
-import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
+                         base-4.9.1.0:Data.Functor.Compose base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.Functor.Product base-4.9.1.0:Data.Functor.Sum
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         primitive-0.6.1.0@primitive-0.6.1.0-6AbSTw9JXz141LE5p6LGH:Control.Monad.Primitive
+                         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
+                         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Lazy
+                         unordered-containers-0.2.7.2@unordered-containers-0.2.7.2-8AmrySQXjRGF6VciYs51fM:Data.HashMap.Base
+                         unordered-containers-0.2.7.2@unordered-containers-0.2.7.2-8AmrySQXjRGF6VciYs51fM:Data.HashSet
+                         vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector
+import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
+import  -/  base-4.9.1.0:Data.OldList 27987919d8da2f92e3f472ca81f730f8
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.List ab8c4e523e6c479c549d3bcd5fc4a439
+import  -/  base-4.9.1.0:GHC.Num 00bfaa7b2f9d6084913c0697a8a49ec8
 import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-4.9.1.0:System.Environment 08cb808e8e6a7821e6f8cfa76a977431
 import  -/  base-4.9.1.0:System.IO e4a64a8e3dce8616da54f0ee7104f7db
 import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
-import  -/  Grammar ab5c0831188c9260dd4740cb4e9bdb05
-  exports: 7d4cc9b36ac25fe677e7dd34f350ee27
-  parseExpr 3fd981c9b0e6bbfd5bb32295ebb27ca7
-import  -/  Tokens 445fa30c39a95907cb589d025f092774
-  exports: f7ef56c16412fb075a475147c5bea63c
-  scanTokens efd2a2c67b643eff763d951bcbd5a9d5
+import  -/  Checker 922b487c4133fab15cfdff34e185bcab
+  exports: 62ad69bbac28c745a7ca855284e5df1e
+  check 6b367284506ec0d7bae7560403e3bb4d
+import  -/  Grammar ba37de7439499eb1877c285add81b3bb
+  exports: 05252fb5da0ca65b4f58a10c32532b68
+  Expr bf568dd1a19191c074884c82c3d8aa8d
+  parseExpr 456000430c43518902d7d58ba52515ce
+import  -/  Tokens 9a2ee87409249beb891452b76ec1fd24
+  exports: c6b007f4a91c8d6d60927944bc33b50b
+  scanTokens 6ea080f0190dc27acc85809458188ba9
+import  -/  mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6:Control.Monad.State.Strict eff0af50b9ed40c32939885d02cca72b
+import  -/  split-0.2.3.1@split-0.2.3.1-FWyXC6nhV0H3AfM8IzrEFk:Data.List.Split c60198a427bfd51d9fb4562c059ec1d2
+import  -/  split-0.2.3.1@split-0.2.3.1-FWyXC6nhV0H3AfM8IzrEFk:Data.List.Split.Internals 25dced234ed01c9c803d678763a4d772
+import  -/  transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.State.Strict 978f397cc30fa26d55cf117e3751a6ed
+import  -/  unordered-containers-0.2.7.2@unordered-containers-0.2.7.2-8AmrySQXjRGF6VciYs51fM:Data.HashMap.Strict a9ee6aba5602be21f4f14db4b21075c9
+import  -/  vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector 5a746e9670329619c461c982b12cd97b
+acef52ef8d39bddab6895a005a9e4d39
+  $s$fShow(,)2 :: GHC.Show.Show (Grammar.Expr, GHC.Types.Int)
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ (Grammar.Expr, GHC.Types.Int)
+                  (GHC.Show.$fShow(,)_$cshowsPrec
+                     @ Grammar.Expr
+                     @ GHC.Types.Int
+                     Grammar.$fShowExpr
+                     GHC.Show.$fShowInt)
+                  Main.$s$fShow(,)_$s$fShow(,)_$cshow1
+                  Main.$s$fShow(,)_$s$fShow(,)_$cshowList1 -}
+841cc21b4674bff69155989d6f602257
+  $s$fShow(,)_$s$fShow(,)_$cshow1 ::
+    (Grammar.Expr, GHC.Types.Int) -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(A,U(U))>m2,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: (Grammar.Expr, GHC.Types.Int)) ->
+                 GHC.Show.$fShow(,)_$cshowsPrec
+                   @ Grammar.Expr
+                   @ GHC.Types.Int
+                   Grammar.$fShowExpr
+                   GHC.Show.$fShowInt
+                   GHC.Show.shows22
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+c4e106c3e44ef2bf2caccaece5819176
+  $s$fShow(,)_$s$fShow(,)_$cshowList1 ::
+    [(Grammar.Expr, GHC.Types.Int)] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (eta :: [(Grammar.Expr, GHC.Types.Int)])
+                   (eta1 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ (Grammar.Expr, GHC.Types.Int)
+                   (GHC.Show.$fShow(,)_$cshowsPrec
+                      @ Grammar.Expr
+                      @ GHC.Types.Int
+                      Grammar.$fShowExpr
+                      GHC.Show.$fShowInt
+                      GHC.Show.shows22)
+                   eta
+                   eta1) -}
 d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
@@ -46,61 +139,80 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-6d9640359dafeed0623e0d61b0be5fe9
+b7a68a718d21838580e8f40cf06ff245
+  help ::
+    GHC.Base.String
+    -> GHC.Types.Int -> GHC.Base.String -> [GHC.Base.String]
+  {- Arity: 3, Strictness: <S,U><L,1*U(U)><S,U> -}
+d9c0dee8a685c5ed422401aaa63f23bf
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-b46ebfb164a98f4c538b17219a0bd2f9
+01d62c2c484918d4b5d94b688c90c90e
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (eta :: GHC.Prim.State#
-                             GHC.Prim.RealWorld)[OneShot] ->
-                 GHC.IO.Handle.Text.hPutStr2
-                   GHC.IO.Handle.FD.stdout
-                   Main.main2
-                   GHC.Types.True
-                   eta) -}
-fe930ae7168726e4b544b56baaade29e
-  main2 :: GHC.Base.String
-  {- Unfolding: (case (Grammar.happyNewToken
-                         @ (Grammar.HappyAbsSyn Grammar.Exp)
-                         @ (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp))
-                         Grammar.parseExpr1
-                         (Grammar.notHappyAtAll
-                            @ [Grammar.HappyState
-                                 Tokens.Token
-                                 (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)
-                                  -> [Tokens.Token]
-                                  -> Grammar.HappyIdentity (Grammar.HappyAbsSyn Grammar.Exp))])
-                         (Grammar.notHappyAtAll
-                            @ (Grammar.HappyStk (Grammar.HappyAbsSyn Grammar.Exp)))
-                         Main.main3)
-                        `cast`
-                      (Grammar.N:HappyIdentity[0]
-                           <Grammar.HappyAbsSyn Grammar.Exp>_R) of wild {
-                   DEFAULT -> case Grammar.notHappyAtAll ret_ty GHC.Base.String of {}
-                   Grammar.HappyAbsSyn4 z
-                   -> Grammar.$w$cshowsPrec 0# z (GHC.Types.[] @ GHC.Types.Char) }) -}
-88e132825d990207f8bf16c6ab84b3d6
-  main3 :: [Tokens.Token]
-  {- Unfolding: (Tokens.$wgo
-                   Tokens.alexScanTokens1
-                   (GHC.Types.[] @ Tokens.Byte)
-                   Main.main4) -}
-5d0bbc1ed30d47a32ce5b375abc547e1
-  main4 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "x -> a123&y -> h"#) -}
-e1e3b430f13245b664a149ebbc8b4ed9
-  main5 ::
+  {- Arity: 1, Strictness: <S,U> -}
+129a1a814fa667791781f32a098e848d
+  main2 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1,
      Unfolding: (GHC.TopHandler.runMainIO1
                    @ ()
                    Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+196ea1b5765c05f71e1dcf6f32f005e2
+  parse :: GHC.Base.String -> Grammar.Expr
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.parse1
+                  `cast`
+                (<GHC.Base.String>_R
+                 ->_R Grammar.N:HappyIdentity[0]
+                          (UnsafeCo representational (Grammar.HappyAbsSyn
+                                                        Grammar.Expr
+                                                        Grammar.Expr
+                                                        [Grammar.Expr]
+                                                        Grammar.Expr) Grammar.Expr)) -}
+be9969b57816c9b9b530912e5af6307b
+  parse1 ::
+    GHC.Base.String
+    -> Grammar.HappyIdentity
+         (Grammar.HappyAbsSyn
+            Grammar.Expr Grammar.Expr [Grammar.Expr] Grammar.Expr)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: GHC.Base.String) ->
+                 Grammar.happyNewToken
+                   0#
+                   (Grammar.notHappyAtAll @ Grammar.Happy_IntList)
+                   (Grammar.notHappyAtAll
+                      @ (Grammar.HappyStk
+                           (Grammar.HappyAbsSyn
+                              Grammar.Expr Grammar.Expr [Grammar.Expr] Grammar.Expr)))
+                   (Tokens.alexScanTokens x)) -}
+"SPEC/Main $fShow(,) @ Expr @ Int" [ALWAYS] forall ($dShow1 :: GHC.Show.Show
+                                                                 GHC.Types.Int)
+                                                   ($dShow :: GHC.Show.Show Grammar.Expr)
+  GHC.Show.$fShow(,) @ Grammar.Expr @ GHC.Types.Int $dShow $dShow1
+  = Main.$s$fShow(,)2
+"SPEC/Main $fShow(,)_$cshow @ Expr @ Int" [ALWAYS] forall ($dShow1 :: GHC.Show.Show
+                                                                        GHC.Types.Int)
+                                                          ($dShow :: GHC.Show.Show Grammar.Expr)
+  GHC.Show.$fShow(,)_$cshow @ Grammar.Expr
+                            @ GHC.Types.Int
+                            $dShow
+                            $dShow1
+  = Main.$s$fShow(,)_$s$fShow(,)_$cshow1
+"SPEC/Main $fShow(,)_$cshowList @ Expr @ Int" [ALWAYS] forall ($dShow1 :: GHC.Show.Show
+                                                                            GHC.Types.Int)
+                                                              ($dShow :: GHC.Show.Show Grammar.Expr)
+  GHC.Show.$fShow(,)_$cshowList @ Grammar.Expr
+                                @ GHC.Types.Int
+                                $dShow
+                                $dShow1
+  = Main.$s$fShow(,)_$s$fShow(,)_$cshowList1
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:
