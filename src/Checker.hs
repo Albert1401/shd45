@@ -1,71 +1,106 @@
 module Checker where
 import Grammar
+import Control.Monad.IO.Class
 import Tokens
 import qualified Control.Monad.State.Strict as ST
 import qualified Data.HashMap.Strict as Map
-import qualified Data.Vector as Vect
+import Data.List
 import qualified Data.HashSet as Set
+import Patterns
 
-data Result = No | Almost String | Matched String
-instance Show Result where
-    show No = "Error"
-    show (Almost s) = s
-    show (Matched s) = s
+data Result = No | Almost String | Matched Expr deriving Show
 
 (<>) :: Result -> Result -> Result
-a@(Matched s) <> _ = a
-_ <> a@(Matched s) = a
+a@(Matched _) <> _ = a
+_ <> a@(Matched _) = a
 a@(Almost s) <> _ = a
 _ <> a@(Almost s) = a
 _ <> _ = No
 
 -- assumptions -> to check -> state (checked, Result)
-check :: Vect.Vector (Expr, Int) -> Vect.Vector (Expr, Int) -> ST.State (Vect.Vector (Expr,Int), Vect.Vector String) Bool
-check asmpts tocheck | Vect.null tocheck = return True
+check :: [] Expr -> [] Expr -> ST.State [Expr] Bool
+check asmpts tocheck | null tocheck = return True
 check asmpts tocheck = do
-    let (e, num) = Vect.head tocheck
+    let e = head tocheck
     checked <- ST.get
-    case isAsmptn e asmpts <> is1_10 e <> is13_20 e <> is21 e <> is11_12 e <> isMP e (fst checked) <> isMP2_3 e (fst checked) of
-        (Matched s) -> do
-                       ST.modify' (\(a,b) -> (Vect.snoc a (e, num), Vect.snoc b s))
-                       check asmpts (Vect.tail tocheck)
+    case isAsmptn e asmpts <> is1_10 e <> is13_20 e <> is21 e <> is11_12 e <> isMP e checked <> isMP2 e checked <> isMP3 e checked of
+        Matched _ -> do
+                        ST.modify' ((:) e)
+                        check asmpts (tail tocheck)
         (Almost s) -> do
-                       ST.modify' (\(a,b) -> (Vect.snoc a (e, num), Vect.snoc b s))
+                       --ST.modify' ((:) e)
                        return False
         No -> do
-               ST.modify' (\(a,b) -> (Vect.snoc a (e,num) , Vect.snoc b "Error"))
+               --ST.modify' ((:) e)
                return False
 
-isAsmptn :: Expr -> Vect.Vector (Expr, Int) -> Result
-isAsmptn e asmptns = case Vect.findIndex (\(e', _) -> e' == e) asmptns of
-            (Just ind) -> Matched $ "Assumption #" ++ (show $ ind + (1 :: Int))
-            Nothing -> No
+-- assumptions -> toright -> to check -> state (new, old)
+checkDeduction :: [] Expr -> Expr -> [] Expr -> (ST.State ([Expr], [Expr])) String
+checkDeduction asmpts re tocheck | null tocheck = return ""
+checkDeduction asmpts re tocheck = do
+    let e = head tocheck
+    (_, checked) <- ST.get
+    case isAsmptn e asmpts <> is1_10 e <> is13_20 e <> is21 e <> is11_12 e of
+       Matched _ -> do
+            let help = map (parse . concatMap (replForAx re e)) helpForAx
+            ST.modify' (\(n, o) -> (help ++ n, e : o))
+            checkDeduction asmpts re (tail tocheck)
+       _ -> if e == re then do
+                         let help = map (parse . concatMap (replForEq re)) helpForEq
+                         ST.modify' (\(n, o) -> (help ++ n, e : o))
+                         checkDeduction asmpts re (tail tocheck)
+             else case isMP e checked of
+                    Matched l -> do
+                      let help = map (parse . concatMap (replForMP re l e)) helpForMP
+                      ST.modify' (\(n, o) -> (help ++ n, e : o))
+                      checkDeduction asmpts re (tail tocheck)
+                    No -> case isMP2 e checked of
+                          Matched _ -> do
+                              let (BinOp '>' (Qtfr '?' (Var vname) l) r) = e
+                              if haveFree vname re then return "err"
+                              else do
+                                        let help = map (parse . concatMap (replForMP2 vname re l r)) helpForMP2
+                                        ST.modify' (\(n, o) -> (help ++ n, e : o))
+                                        checkDeduction asmpts re (tail tocheck)
+                          Almost s -> return "err"
+                          No -> case isMP3 e checked of
+                              Matched _ -> do
+                                let (BinOp '>' l (Qtfr '@' (Var vname) r)) = e
+                                if haveFree vname re then return "err"
+                                else do
+                                          let help = map (parse . concatMap (replForMP3 vname re l r)) helpForMP3
+                                          ST.modify' (\(n, o) -> (help ++ n, e : o))
+                                          checkDeduction asmpts re (tail tocheck)
+                              Almost s -> return "err"
+                              No -> return "err"
+
+
+isAsmptn :: Expr -> [] Expr -> Result
+isAsmptn e asmptns = if elem e asmptns then Matched Zero else No
 
 is1_10 :: Expr -> Result
 is1_10 e =  let
          res = map (\x -> ST.evalState (lookAlike x e) Map.empty) schemes1
           in if not $ or res then No
-             else Matched $ "Axiom #" ++ (show $ snd $ head (dropWhile (\(res, num) -> not res) (zip res [1..])))
+          else Matched Zero
 
 is13_20 :: Expr -> Result
-is13_20 e = let
-        res = filter (\(ax, num) -> ax == e) axioms
-            in if null res then No
-            else Matched $ (show . snd . head) res
+is13_20 e = if elem e axioms then Matched Zero
+            else No
 
 
-isMP :: Expr -> Vect.Vector (Expr, Int) -> Result
+isMP :: Expr -> [] Expr -> Result
 isMP exp prfV = let
-    rMP = Vect.filter isImpl prfV
-    res = Vect.dropWhile (Nothing == ) $ Vect.map isLeft rMP
-     in if Vect.null res then No
-        else Matched $ ((++ "M.P.") . show . Vect.head) res
+    rMP = filter isImpl prfV
+    res = filter isLeft rMP
+    extr (BinOp '>' toex _) = toex
+     in if not $ null res then Matched $ extr $ head res
+        else No
       where
-        isImpl (BinOp '>' _ r, ind) = r == exp
+        isImpl (BinOp '>' _ r) = r == exp
         isImpl _ = False
-        isLeft (BinOp '>' l _, sndInd) = case Vect.find (\(l', _) -> l == l') prfV of
-                            Just (_, fstInd) -> Just (fstInd, sndInd)
-                            Nothing -> Nothing
+        isLeft (BinOp '>' l _) = elem l prfV
+        isLeft _ = False
 
 lookAlike :: Expr -> Expr -> ST.State (Map.HashMap String Expr) Bool
 lookAlike (UnOp pch pe) (UnOp ch e) | pch == ch = lookAlike pe e
@@ -130,9 +165,9 @@ isFree1 :: String -> Expr -> Expr -> Bool
 isFree1 vname l r = ST.evalState (isFree vname l r Set.empty) Map.empty
 
 is11_12 :: Expr -> Result
-is11_12 (BinOp '>' (Qtfr '@' (Var vname ) e) e') = if isFree1 vname e e' then Matched "Ax 11"
+is11_12 (BinOp '>' (Qtfr '@' (Var vname ) e) e') = if isFree1 vname e e' then Matched Zero
                                                    else Almost "Almost Ax 11"
-is11_12 (BinOp '>' e' (Qtfr '?' (Var vname ) e)) = if isFree1 vname e e' then Matched "Ax 12"
+is11_12 (BinOp '>' e' (Qtfr '?' (Var vname ) e)) = if isFree1 vname e e' then Matched Zero
                                                    else Almost "Almost Ax 12"
 is11_12 _ = No
 
@@ -147,41 +182,41 @@ is21 (BinOp '>' (BinOp '&' fi0 (Qtfr '@' (Var name) (BinOp '>' fi fix'))) fi') |
                           (Just e) -> e == UnOp 'q' (Var name)
                           Nothing -> False
         , fi == fi' && crct' && crct && ans && ans'
-        = if haveFree name fi then Matched "Axiom 21"
+        = if haveFree name fi then Matched Zero
                               else Almost "Almost Ax 21"
 is21 _ = No
 
 
 haveFree vname e = Set.member vname $ ST.execState (getFrees Set.empty e) Set.empty
-isMP2_3 :: Expr -> Vect.Vector (Expr, Int) -> Result
-isMP2_3 (BinOp '>' l (Qtfr '@' (Var vname) r)) prfV | sat <- Vect.filter (\x -> BinOp '>' l r == fst x) prfV
-                                                    , not $ null sat
-                                                    = if not $ haveFree vname l then Matched "M.P. 2"
-                                                      else Almost "M.P. 2"
-isMP2_3 (BinOp '>' (Qtfr '?' (Var vname) l) r) prfV | sat <- Vect.filter (\x -> BinOp '>' l r == fst x) prfV
-                                                    , not $ null sat
-                                                    = if not $ haveFree vname r then Matched "M.P. 3"
+isMP2 (BinOp '>' (Qtfr '?' (Var vname) l) r) prfV | any <- filter (\x -> BinOp '>' l r == x) prfV
+                                                    = if not $ haveFree vname r then Matched Zero
                                                       else Almost "Almost M.P. 3"
-isMP2_3 _ _ = No
+isMP2 _ _ = No
+isMP3 (BinOp '>' l (Qtfr '@' (Var vname) r)) prfV | any (\x -> BinOp '>' l r == x) prfV
+                                                    = if not $ haveFree vname l then Matched Zero
+                                                      else Almost "M.P. 2"
+isMP3 _ _ = No
 
-schemes1 = map (parseExpr . scanTokens)
-    [ "A1 -> A2 -> A1"
-    , "(A1 -> A2) -> (A1 -> A2 -> A3) -> (A1 -> A3)"
-    , "A1 -> A2 -> A1 & A2"
-    , "A1 & A2 -> A1"
-    , "A1 & A2 -> A2"
-    , "A1 -> A1 | A2"
-    , "A2 -> A1 | A2"
-    , "(A1 -> A3) -> (A2 -> A3) -> (A1 | A2 -> A3)"
-    , "(A1 -> A2) -> (A1 -> !A2) -> !A1"
-    , "!!A1 -> A1" ]
+replForAx re e 'A' = show re
+replForAx re e 'B' = show e
+replForAx _ _ ch = [ch]
 
-axioms = zip (map (parseExpr . scanTokens)
-    [ "a = b -> a' = b'"
-    , "a = b -> a = c -> b = c"
-    , "a' = b' -> a = b"
-    , "!a' = 0"
-    , "a + b' = (a + b)'"
-    , "a + 0 = a"
-    , "a * 0 = 0"
-    , "a * b' = a * b + a" ]) [1..]
+replForEq e 'A' = show e
+replForEq e ch = [ch]
+
+replForMP re l r 'A' = show re
+replForMP re l r 'B' = show l
+replForMP re l r 'C' = show r
+replForMP _ _ _ ch = [ch]
+
+replForMP2 vname re ql r 'A' = show re
+replForMP2 vname re ql r 'B' = show ql
+replForMP2 vname re ql r 'C' = show r
+replForMP2 vname re ql r 'x' = vname
+replForMP2 vname _ _ _ ch = [ch]
+
+replForMP3 vname re l qr 'A' = show re
+replForMP3 vname re l qr 'B' = show l
+replForMP3 vname re l qr 'C' = show qr
+replForMP3 vname re l qr 'x' = vname
+replForMP3 _ _ _ _ ch = [ch]

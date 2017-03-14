@@ -70,6 +70,9 @@ Term : Term '+' Term         { BinOp '+' $1 $3 }
 parseError :: [Token] -> a
 parseError ts = error $ "Parse error" ++ "\n" ++ show ts
 
+h [a] = show a
+h (a:as) = show a ++ "," ++ h as
+
 data Expr = BinOp Char Expr Expr
          | UnOp Char Expr
          | Funct Char String [Expr]
@@ -82,7 +85,8 @@ instance Show Expr where
     --lazyness
     show (BinOp '>' a b) = "(" ++ show a ++ "->" ++ show b ++ ")"
     show (BinOp op a b) = "(" ++ show a ++ [op] ++ show b ++ ")"
-    show (Funct _ a b) = a ++ "(" ++ show b ++ ")"
+    show (Funct _ a []) = a
+    show (Funct _ a b) = a ++ "(" ++ h b ++ ")"
     show (Qtfr ch a b) = [ch] ++ show a ++ "(" ++ show b ++ ")"
     show (UnOp '!' a) = "!" ++ "(" ++ show a ++ ")"
     show (UnOp 'q' a) = "(" ++ show a ++ ")" ++ "'"

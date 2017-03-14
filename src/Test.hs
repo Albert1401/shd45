@@ -8,7 +8,8 @@ import Checker
 import Control.Monad.State
 
 parse = parseExpr . scanTokens
-mptstbase = Vect.fromList $ zip (map parse["Q(a)->?aQ(a)"
+
+mptstbase = Vect.fromList $ zip (map parse ["Q(a)->?aQ(a)"
                     ,"(Q(a)->?aQ(a))->P(a)->(Q(a)->?aQ(a))"
                     ]) ([1..] :: [Int])
 
@@ -24,3 +25,5 @@ aaa = parse "@b?bP(f(b,b))->?bP(f(a,b))"
 
 aa = parse "?bP(f(b,b))"
 aa' = parse "?bP(f(a,b))"
+
+replForMP (Pred )
