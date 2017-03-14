@@ -22,22 +22,19 @@ parse = parseExpr . scanTokens
 
 main :: IO ()
 main = do
-    [arg] <- getArgs
-    file <- readFile $ "HW4/incorrect" ++ arg ++ ".in"
---    file <- readFile $ "output.out"
+    arg <- getLine
+    file <- readFile arg
     let prfHead = splitOn "|-" $ head $ lines file
     let (assumptions, toright) = help "" 0 $ head prfHead
     if null toright then do
-         let (res, arr) = ST.runState (check (map parse assumptions) (map parse $ tail $ lines file)) []
-         mapM_ (putStrLn . (++) "\n" . show) (reverse arr)
-         print $ length arr
+         let (res, arr) = ST.runState (check (map parse assumptions) (map parse $ filter (not . null) $ tail $ lines file)) []
          print res
     else do
         let left = prfHead !! 1
-        let (res, (narr, oarr)) = ST.runState (checkDeduction (map parse assumptions) (parse toright) (map parse $ tail $ lines file)) ([],[])
+        let (res, (narr, oarr)) = ST.runState (checkDeduction (map parse assumptions) (parse toright) (map parse $ filter (not . null) $ tail $ lines file)) ([],[])
         print res
         let newHead = intercalate "," assumptions ++ "|-" ++ toright ++ "->" ++ left ++ "\n"
-        writeFile "output.out" $ newHead ++ concatMap (\x -> show x ++ "\n")  (reverse narr)
+        writeFile "out.txt" $ newHead ++ concatMap (\x -> show x ++ "\n")  (reverse narr)
 
 
 
