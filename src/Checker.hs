@@ -7,8 +7,9 @@ import qualified Data.HashMap.Strict as Map
 import Data.List
 import qualified Data.HashSet as Set
 import Patterns
+import qualified Data.ByteString.UTF8 as BS
 
-data Result = No | Almost String | Matched Expr deriving Show
+data Result = No | Almost BS.ByteString | Matched Expr deriving Show
 
 (<>) :: Result -> Result -> Result
 a@(Matched _) <> _ = a
@@ -18,66 +19,65 @@ _ <> a@(Almost s) = a
 _ <> _ = No
 
 -- assumptions -> to check -> state (checked, Result)
-check :: [] Expr -> [] Expr -> ST.State [Expr] String
-check asmpts tocheck | null tocheck = return "OK"
+check :: [] Expr -> [] Expr -> ST.State [Expr] BS.ByteString
+check asmpts tocheck | null tocheck = return $ BS.fromString "ОК"
 check asmpts tocheck = do
     let e = head tocheck
     checked <- ST.get
-    case isAsmptn e asmpts <> is1_10 e <> is13_20 e <> is21 e <> is11_12 e <> isMP e checked <> isMP2 e checked <> isMP3 e checked of
+    case isAsmptn e asmpts <> is1_10 e <> is13_20 e <> is21 e <> is11 e <> is12 e <> isMP e checked <> isMP2 e checked <> isMP3 e checked of
         Matched _ -> do
                         ST.modify' ((:) e)
                         check asmpts (tail tocheck)
         (Almost s) -> do
-                       ST.modify' ((:) e)
                        return s
         No -> do
-               ST.modify' ((:) e)
-               return "err"
+               return (BS.fromString "")
 
 -- assumptions -> toright -> to check -> state (new, old)
-checkDeduction :: [] Expr -> Expr -> [] Expr -> (ST.State ([Expr], [Expr])) String
-checkDeduction asmpts re tocheck | null tocheck = return "OK"
+checkDeduction :: [] Expr -> Expr -> [] Expr -> (ST.State ([Expr], [Expr])) BS.ByteString
+checkDeduction asmpts re tocheck | null tocheck = return $ BS.fromString "ОК"
 checkDeduction asmpts re tocheck = do
     let e = head tocheck
     (_, checked) <- ST.get
-    case isAsmptn e asmpts <> is1_10 e <> is13_20 e <> is21 e <> is11_12 e of
+    case isAsmptn e asmpts <> is1_10 e <> is13_20 e <> is21 e <> is11 e <> is12 e of
        Matched _ -> do
             let help = map (parse . concatMap (replForAx re e)) helpForAx
             ST.modify' (\(n, o) -> (help ++ n, e : o))
             checkDeduction asmpts re (tail tocheck)
        Almost s -> resolve asmpts re checked tocheck e s
-       No -> resolve asmpts re checked tocheck e "err"
+       No -> resolve asmpts re checked tocheck e (BS.fromString "")
 
 resolve asmpts re checked tocheck e errs = if e == re then do
-                                           let help = map (parse . concatMap (replForEq re)) helpForEq
-                                           ST.modify' (\(n, o) -> (help ++ n, e : o))
-                                           checkDeduction asmpts re (tail tocheck)
-                                        else case isMP e checked of
-                                                    Matched l -> do
-                                                      let help = map (parse . concatMap (replForMP re l e)) helpForMP
-                                                      ST.modify' (\(n, o) -> (help ++ n, e : o))
-                                                      checkDeduction asmpts re (tail tocheck)
-                                                    No -> case isMP2 e checked of
-                                                          Matched _ -> do
-                                                              let (BinOp '>' (Qtfr '?' (Var vname) l) r) = e
-                                                              if haveFree vname re then return $ "ispolsuetsya pravilo s kvantorom po peremennoi " ++ vname
-                                                                                                    ++ " vhodyashei svobodno v dopushenie " ++ show re
-                                                              else do
-                                                                        let help = map (parse . concatMap (replForMP2 vname re l r)) helpForMP2
-                                                                        ST.modify' (\(n, o) -> (help ++ n, e : o))
-                                                                        checkDeduction asmpts re (tail tocheck)
-                                                          Almost s -> return s
-                                                          No -> case isMP3 e checked of
-                                                              Matched _ -> do
-                                                                let (BinOp '>' l (Qtfr '@' (Var vname) r)) = e
-                                                                if haveFree vname re then return $ "ispolsuetsya pravilo s kvantorom po peremennoi " ++ vname
-                                                                                                    ++ " vhodyashei svobodno v dopushenie " ++ show re
-                                                                else do
-                                                                          let help = map (parse . concatMap (replForMP3 vname re l r)) helpForMP3
-                                                                          ST.modify' (\(n, o) -> (help ++ n, e : o))
-                                                                          checkDeduction asmpts re (tail tocheck)
-                                                              Almost s -> return s
-                                                              No -> return errs
+    let help = map (parse . concatMap (replForEq re)) helpForEq
+    ST.modify' (\(n, o) -> (help ++ n, e : o))
+    checkDeduction asmpts re (tail tocheck)
+        else case isMP e checked of
+                    Matched l -> do
+                      let help = map (parse . concatMap (replForMP re l e)) helpForMP
+                      ST.modify' (\(n, o) -> (help ++ n, e : o))
+                      checkDeduction asmpts re (tail tocheck)
+                    No -> case isMP2 e checked of
+                          Matched _ -> do
+                              let (BinOp '>' (Qtfr '?' (Var vname) l) r) = e
+                              if haveFree vname re then return $ BS.fromString $ ": Используется правило с квантором по переменной " ++ vname
+                                                                    ++ ", входящей свободно в допущение " ++ show re
+                              else do
+                                        let help = map (parse . concatMap (replForMP2 vname re l r)) helpForMP2
+                                        ST.modify' (\(n, o) -> (help ++ n, e : o))
+                                        checkDeduction asmpts re (tail tocheck)
+                          Almost s -> return s
+                          No -> case isMP3 e checked of
+                              Matched _ -> do
+                                let (BinOp '>' l (Qtfr '@' (Var vname) r)) = e
+                                if haveFree vname re then return $ BS.fromString $ ": Используется правило с квантором по переменной " ++ vname
+                                                                    ++ ", входящей свободно в допущение " ++ show re
+                                else do
+                                          let help = map (parse . concatMap (replForMP3 vname re l r)) helpForMP3
+                                          ST.modify' (\(n, o) -> (help ++ n, e : o))
+                                          checkDeduction asmpts re (tail tocheck)
+                              Almost s -> return s
+                              No -> do
+                                    return errs
 
 isAsmptn :: Expr -> [] Expr -> Result
 isAsmptn e asmptns = if elem e asmptns then Matched Zero else No
@@ -168,22 +168,25 @@ isFree vname pe e _ = return $ pe == e
 isFree1 :: String -> Expr -> Expr -> (Bool, Map.HashMap String Expr)
 isFree1 vname l r = ST.runState (isFree vname l r Set.empty) Map.empty
 
-is11_12 :: Expr -> Result
-is11_12 (BinOp '>' (Qtfr '@' (Var vname ) e) e') = let
+is11 :: Expr -> Result
+is11 (BinOp '>' (Qtfr '@' (Var vname ) e) e') = let
                                                     (res, mp) = isFree1 vname e e'
                                                      in if res then Matched Zero
                                                         else case Map.lookup vname mp of
-                                                             (Just e'') -> Almost $ "Term " ++ show (Map.lookup vname mp) ++ " ne svoboden dlya podstanovki v formulu "
-                                                                            ++ show e ++ " vmesto peremennoi " ++ vname
+                                                             (Just e'') -> Almost $ BS.fromString $ ": Терм " ++ show (Map.lookup vname mp)
+                                                                            ++ " не свободен для подстановки в формулу "
+                                                                            ++ show e ++ " вместо переменной " ++ vname
                                                              Nothing -> No
-is11_12 (BinOp '>' e' (Qtfr '?' (Var vname ) e)) = let
+is11 _ = No
+is12 (BinOp '>' e' (Qtfr '?' (Var vname ) e)) = let
                                                     (res, mp) = isFree1 vname e e'
                                                      in if res then Matched Zero
                                                         else case Map.lookup vname mp of
-                                                             (Just e'') -> Almost $ "Term " ++ show (Map.lookup vname mp) ++ " ne svoboden dlya podstanovki v formulu "
-                                                                              ++ show e ++ " vmesto peremennoi " ++ vname
+                                                             (Just e'') -> Almost $ BS.fromString $ ": Терм " ++ show (Map.lookup vname mp)
+                                                                            ++ " не свободен для подстановки в формулу "
+                                                                            ++ show e ++ "вместо переменной " ++ vname
                                                              Nothing -> No
-is11_12 _ = No
+is12 _ = No
 
 is21 :: Expr -> Result
 is21 (BinOp '>' (BinOp '&' fi0 (Qtfr '@' (Var name) (BinOp '>' fi fix'))) fi') |
@@ -197,18 +200,18 @@ is21 (BinOp '>' (BinOp '&' fi0 (Qtfr '@' (Var name) (BinOp '>' fi fix'))) fi') |
                           Nothing -> False
         , fi == fi' && crct' && crct && ans && ans'
         = if haveFree name fi then Matched Zero
-                              else Almost "ne svobodno dlya podstanovki (sh aks 21)"
+                              else Almost $ BS.fromString $ ": Формула " ++ show fi ++ " не имеет свободных вхождений переменной " ++ name
 is21 _ = No
 
 
 haveFree vname e = Set.member vname $ ST.execState (getFrees Set.empty e) Set.empty
 isMP2 (BinOp '>' (Qtfr '?' (Var vname) l) r) prfV | any <- filter (\x -> BinOp '>' l r == x) prfV
                                                     = if not $ haveFree vname r then Matched Zero
-                                                      else Almost $ "peremennaya " ++ vname ++ " vhodit svobodno v formulu " ++ show r
+                                                      else Almost $ BS.fromString $ ": Переменная " ++ vname ++ " входит свободно в формулу " ++ show r
 isMP2 _ _ = No
 isMP3 (BinOp '>' l (Qtfr '@' (Var vname) r)) prfV | any (\x -> BinOp '>' l r == x) prfV
                                                     = if not $ haveFree vname l then Matched Zero
-                                                      else Almost $ "peremennaya " ++ vname ++ " vhodit svobodno v formulu " ++ show l
+                                                      else Almost $ BS.fromString $ ": Переменная " ++ vname ++ " входит свободно в формулу " ++ show l
 isMP3 _ _ = No
 
 replForAx re e 'A' = show re

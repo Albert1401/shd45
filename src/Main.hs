@@ -7,34 +7,53 @@ import Data.List
 import Data.List.Split
 import qualified Data.HashMap.Strict as Map
 import Control.Monad.State.Strict as ST
+import Data.ByteString.UTF8(fromString, toString)
+import Prelude hiding (putStrLn)
+import Data.ByteString.Char8 (putStrLn)
 
-help :: String -> Int -> String -> ([String], String)
-help acc _ []  = ([], acc)
-help acc 0 (',' : chs) = let
-    (a,b) = help "" 0 chs
+parseHead :: String -> Int -> String -> ([String], String)
+parseHead acc _ []  = ([], acc)
+parseHead acc 0 (',' : chs) = let
+    (a,b) = parseHead "" 0 chs
      in (acc : a, b)
-help acc n ('(' : chs) = help (acc ++ "(") (n+1) chs
-help acc n (')' : chs) = help (acc ++ ")") (n-1) chs
-help acc n (a : chs) = help (acc ++ [a]) n chs
+parseHead acc n ('(' : chs) = parseHead (acc ++ "(") (n+1) chs
+parseHead acc n (')' : chs) = parseHead (acc ++ ")") (n-1) chs
+parseHead acc n (a : chs) = parseHead (acc ++ [a]) n chs
 
 parse :: String -> Expr
 parse = parseExpr . scanTokens
 
+lastCheck res narr te | res /= fromString "ОК" = putStrLn $ fromString $ "Вывод некорректен начиная с формулы № "
+                                                   ++ (show $ 1 + length narr) ++ (toString res)
+lastCheck res narr te | res == fromString "ОК"
+                        && (not $ null narr) = if head narr == te then do
+                                                                putStrLn res
+                                                                putStrLn $ fromString "Последняя формула совпадает с формулой в заголовке"
+                                               else do
+                                                  putStrLn res
+                                                  putStrLn $ fromString "Последняя формула не совпадает с формулой в заголовке"
+
+
+
 main :: IO ()
 main = do
-    arg <- getLine
+    [arg, arg2] <- getArgs
     file <- readFile arg
     let prfHead = splitOn "|-" $ head $ lines file
-    let (assumptions, toright) = help "" 0 $ head prfHead
+    let (assumptions, toright) = parseHead "" 0 $ head prfHead
+    let toProve = if not $ null (prfHead !! 1) then parse (prfHead !! 1) else Zero
     if null toright then do
-         let (res, arr) = ST.runState (check (map parse assumptions) (map parse $ filter (not . null) $ tail $ lines file)) []
-         print res
+        let (res, arr) = ST.runState (check (map parse assumptions) (map parse $ filter (not . null) $ tail $ lines file)) []
+        lastCheck res arr toProve
     else do
-        let left = prfHead !! 1
-        let (res, (narr, oarr)) = ST.runState (checkDeduction (map parse assumptions) (parse toright) (map parse $ filter (not . null) $ tail $ lines file)) ([],[])
-        print res
-        let newHead = intercalate "," assumptions ++ "|-" ++ toright ++ "->" ++ left ++ "\n"
-        writeFile "out.txt" $ newHead ++ concatMap (\x -> show x ++ "\n")  (reverse narr)
+        let (res, (narr, oarr)) = ST.runState (checkDeduction (map parse assumptions) (parse toright)
+                (map parse $ filter (not . null) $ tail $ lines file)) ([],[])
+        let newHead = intercalate "," assumptions ++ "|-(" ++ toright ++ ")->(" ++ show toProve ++ ")\n"
+        writeFile arg2 $ newHead ++ concatMap (\x -> show x ++ "\n")  (reverse narr)
+        lastCheck res oarr toProve
+
+
+
 
 
 

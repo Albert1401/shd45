@@ -1,4 +1,4 @@
-name:                 untitled
+name:                 shd45
 version:              0.1.0.0
 synopsis:             
 -- description:
@@ -13,9 +13,10 @@ build-type:           Simple
 -- extra-source-files:
 cabal-version:        >=1.10
 
-executable untitled
+executable checker
   main-is:              Main.hs
   other-modules:        Grammar
+                        , Checker
                         , Tokens
                         , Test
                         , Patterns
@@ -26,5 +27,9 @@ executable untitled
                       , unordered-containers
                       , mtl
                       , vector
+                      , utf8-string
+                      , bytestring
   hs-source-dirs:       src
   default-language:     Haskell2010
+
+
